@@ -45,7 +45,7 @@ Git Commands :  NOTE - git commands are case sensitive.
                                                                 files only
 
     7. git rm --cached <filename> : this command brings the mentioned file(s) from staging area 
-                            to working area. ie - makes them untracked again.
+                            to working area. ie - makes them "untracked/unstaged" again.
     
     8. git restore <filename> : This command discards the changes/modifications made in 
                 working area and restores the code of mentioned file from the staging
@@ -56,3 +56,19 @@ Git Commands :  NOTE - git commands are case sensitive.
                     or changes made in working area that were not stages will be discarded. 
                     thus or file have nothing as "untracked" as all changes are same as 
                     in the staging area.
+            NOTE : the file that is restored still remains in the staging area.
+                    unlike what we see in "git rm --cached".
+    
+    9. git clone [url] :
+
+    10. git pull {branch-name} : by default it pulls from the branch where the HEAD 
+                    is pointing at now.
+    11. git branch | git branch -r | git branch -a : They all list the branch names and point 
+                                                to the current branch as hghlighted one.
+        . git branch -M main :              renames the just created branch to "main"
+        . git checkout {branchname} :       switches from current branch to mentioned branch.
+        . git checkout -b {branchname} :    creates a new branch and swithes to that new branch.
+        . git branch -d localBranchName :   delete branch locally.
+        . git push origin --delete remoteBranchName : delete branch remotely.
+
+    12. git merge {branchname} : merges the mentioned branch with current branch.
