@@ -1,16 +1,18 @@
 1. How to check if git is available on your system ?
     - git version | git --version
 2. How to initialize a new git repo ?
-    -
+    - git init
 3. How to tell git about ur name and email ?
-    -
+    - git config --global user.name {username}| user.email {email}
 4. How to add a file to the staging area ?
-    -
+    - git add <filename>
 5. How to remove a file from the staging area ?
-    -
+    - git rm --cached <filename>
 6. how to make a commit ?
-    -
+    - git commit -m "message here"
 7. How to send ur changes to a remote repository ?
-    -
+    - git push origin [branch-name]
 8. What is the difference between clone and pull ?
-    -
+    - clone : copies an remote repo into our local system.
+      pull  : it pulls the latest changes from remote repo and merges it into our local repo
+                that is already created. it works on an already created local repo.
