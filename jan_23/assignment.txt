@@ -1,0 +1,29 @@
+1. What is GIT ?
+    - it is a distributed version control system that helps us in keeping track
+     of changes made to our project/files like history, who made changes, what changes
+     were made, etc.
+2. What do you understand by the term "Version Control System" ?
+    -  it is actually a category of software that helps us in recording changes in our files
+        by keeping track of file modifications done.
+3. What is Github ?
+    - it is actually a cloud-based hosting service that helps us manage the Git repositories.
+4. Popular Git hosting service ?
+    - Github, Gitlab, BitBucket, etc.
+5. Different types of version control system ?
+    - Centralised VCS
+    - Decentralised VCS
+    - LOcal VCS : (got to know about this from gfg).
+6. Benefits of using GIT ?
+    - easier code collaboration.
+    - chanses of loosing the Project Code is nil.
+    - fault in any local repo or in the main remote repo wont affect out local repo.
+    - in case of remote repo failure, code can be restored from any of the remote repo,
+         that has the latest commits.
+    - we dont have to be always stay connected to remote repo.
+         we can record our own changes in our local repo as well.
+7. What is Git repository ?
+    - It is actually a local repository that is part of Git architecture. here we can 
+     record the changes made to our local code by using the "commit" command.
+8. How can we initialize a repository in GIT ?
+    - "git init" command initializes the workspace as a git repo and creates 3 stages,
+        1. working area, 2. staging area, 3. Local repository.
