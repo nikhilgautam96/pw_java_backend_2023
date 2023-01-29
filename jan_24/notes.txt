@@ -1,0 +1,38 @@
+Git Commands :  NOTE - git commands are case sensitive.
+    1. git version/ git --version
+    2. git help
+    3. git config : a convenience function that is used to set Git configuration values 
+                    on a global or local project level.
+            . git config --list :               lists all the configurations.
+              git config --list --system :      lists config set at system level
+              git config --list --global :      lists config set at global level
+              git config --list --local :       lists config set at local level
+
+                // System           | // Global          | // Local
+                /usr/local/git/etc  | $home/.gitconfig   | .git/config
+
+                System Git config controls settings for all users and all repositories 
+                on your computer.
+                Global Git config controls settings for the currently logged in user 
+                and all his repositories.
+                Local Git config controls settings for a specific repository.
+
+                These 3 config files are executed in a cascading order. 
+                First the "system", then "global" and finally the "local".
+
+                That means that your local Git config will always overwrite settings set 
+                in the Global or System configs.
+
+            . git config --global user.name/user.email : sets the userName or email
+    
+    4. git init
+    5. git status : it tells the status of "Tracked" & "Untracked" files.
+            ie. the files that are there in the working-area = "Untracked"
+                the files in the staging-area = "Tracked"
+    6. git add { .          (stages new files and modifications, without deletions (on the 
+                                    current directory and its subdirectories)), 
+                <filename>  (adds specific file(s) to staging area), 
+                -A          (stages all changes), 
+                -u          (stages modifications and deletions, without new files)
+                }
+    7. 
