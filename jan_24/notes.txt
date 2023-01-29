@@ -35,4 +35,5 @@ Git Commands :  NOTE - git commands are case sensitive.
                 -A          (stages all changes), 
                 -u          (stages modifications and deletions, without new files)
                 }
-    7. 
+    7. git rm --cached <filename> : this command brings the mentioned file(s) from staging area 
+                            to working area. ie - makes them untracked again.
