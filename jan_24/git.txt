@@ -72,3 +72,4 @@ Git Commands :  NOTE - git commands are case sensitive.
         . git push origin --delete remoteBranchName : delete branch remotely.
 
     12. git merge {branchname} : merges the mentioned branch with current branch.
+    13.
