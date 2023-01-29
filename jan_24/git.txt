@@ -68,8 +68,8 @@ Git Commands :  NOTE - git commands are case sensitive.
         . git branch -M main :              renames the just created branch to "main"
         . git checkout {branchname} :       switches from current branch to mentioned branch.
         . git checkout -b {branchname} :    creates a new branch and swithes to that new branch.
-        . git branch -d localBranchName :   delete branch locally.
-        . git push origin --delete remoteBranchName : delete branch remotely.
+        . git branch -d [localBranchName] :   delete branch locally.
+        . git push origin --delete [remoteBranchName] : delete branch remotely.
 
     12. git merge {branchname} : merges the mentioned branch with current branch.
                 NOTE : didn't work for me.
