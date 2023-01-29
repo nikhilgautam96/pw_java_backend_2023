@@ -29,11 +29,30 @@ Git Commands :  NOTE - git commands are case sensitive.
     5. git status : it tells the status of "Tracked" & "Untracked" files.
             ie. the files that are there in the working-area = "Untracked"
                 the files in the staging-area = "Tracked"
-    6. git add { .          (stages new files and modifications, without deletions (on the 
+    6. git add { .          (stages new files, modifications & deletions (on the 
                                     current directory and its subdirectories)), 
                 <filename>  (adds specific file(s) to staging area), 
-                -A          (stages all changes), 
+                -A          (stages all changes, (new, modified, deleted) files), 
                 -u          (stages modifications and deletions, without new files)
                 }
+    After version 2.x :-
+    Command	     New Files	 Modified Files	  Deleted Files	   Description
+    git add -A	     ✔️	          ✔️	              ✔️	      Stage all (new, modified, 
+                                                                    deleted) files
+    git add .	     ✔️	          ✔️	              ✔️	      Stage all (new, modified, 
+                                                                deleted) files in current folder
+    git add -u	     ❌	         ✔️	                ✔️	        Stage modified and deleted 
+                                                                files only
+
     7. git rm --cached <filename> : this command brings the mentioned file(s) from staging area 
                             to working area. ie - makes them untracked again.
+    
+    8. git restore <filename> : This command discards the changes/modifications made in 
+                working area and restores the code of mentioned file from the staging
+                area in the working area. 
+                ie. - if the file (say File1.txt) was already staged, after that we added some 
+                    lines to it. then after restore whatever lines were there in the file 
+                    when in the staging area those lines will be restored and new lines 
+                    or changes made in working area that were not stages will be discarded. 
+                    thus or file have nothing as "untracked" as all changes are same as 
+                    in the staging area.
