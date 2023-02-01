@@ -1,0 +1,82 @@
+Conecepts involved :-
+    . Introduction to programming.
+    . Basic features of java.
+    . Main Method.
+    . Classes and Objects.
+
+What is Programming ?
+    - Makling a set of intructions that tells a computer how to carry out a task is called 
+    as programmming.
+Category of Programing languages :-
+    - Maachine Level language : uses 0's & 1's. platform dependent always.
+    - Assembly Level language : uses pneumonics ( ADD, SUB, MUL, stc. )
+    - High-Level language : uses english language style of writing the instructions. (Java, C++, etc.)
+NOTE : processor understands only (MLL) so "Assembler" is used to convert ALL -> MLL & "Compiler" is 
+        used to convert HLL -> MLL.
+
+JAVA :-
+    - Developed by James A. Gosling with his team(Green team) in 1995 under Sun Microsystems.
+        later it was sold to Oracle.
+    Features of JAVA :-
+        . Simple.
+        . Object oriented.
+        . Portable.
+        . Platform Independent.
+        . Robust.
+        . Distributed.
+        . Dynamic.
+    
+    Platform : by platform we mean (Operating System + Micro-Processor), but in general when we talk
+                about platform we usually refer to "OS" only.
+
+    Plaform Independent : a program written in C language is converted into an MLL executable file.
+                    This MLL executable file will be specific to the OS, that is if the ".exe" file 
+                    was created in windows then this file will run only in windows based systems 
+                    and not in Linux or Unix. Therefor 'C' is not platform independent.
+
+                    Java code on the other hand is not converted into MLL directly.
+                    The Java code (Source File) is first converted into "ByteCode" by the java compiler.
+        ByteCode : it is the (.class) file.
+                    bytecode is an intermediate code. it is platform independent.
+                    it can be easily transported over the internet. it is highly secure.
+                    ie. a bytecode generated in windows system can be used in mac or linux.
+                    now this bytecode cannot be given to processors directly so java has JVM.
+        JVM : java virtual machine. JVM takes the bytecode as input and generates MLL code as output.
+                for windows we need a windows compatible JVM and for mac a mac compatible and so on.
+                this is how JAVA became platform independent.
+        
+       " File.java --> Compiler ==> Bytecode --> JVM ==> MLL executable file. " 
+
+    Classes & Objects :-
+        Class : A class is a collection of objects that have similar traits, behaviours, and attributes.
+        Object : An object is an entity with state and behaviour. by entity we mean it has an 
+                    independent existence ( every object has an independent existence).
+                    an Object is created using the class blueprint.
+        
+        NOTE : the properties of a class is actually the variables, while the behaviour is
+                the member methods.
+
+    Main Method :-
+        - it is the start of a java program.
+        - JVM begins its execution from the main method.
+
+        " public static void main(String args[]) {...} "
+                - main : name of method. it cannot be changed. ie. nikhilMain() is wrong as 
+                        JVM always looks for "main()" method.   
+                - void : return type. main method does not return anything.
+                - static : can be called/invoked without creating the object of a class.
+                            ie. { "clasname".main() }
+                - public : for visibility.
+                - String args[] : the commandline arguments as a array of strings.
+        NOTE : main methods only accepts two type as command line arguments.
+                . String array[] : 
+                . Varargs : (String... args) It allows the method to accept zero or multiple arguments. 
+                        There should be exactly three dots between String and array; 
+                        otherwise, it gives an error.
+        NOTE : JVM always looks for above metioned 4-5 attributes in main method. 
+                if any of them is missing then it gives an error.
+                Also "static" & "public" can be interchanged.
+            ie. "static public void main(String args[])" is also valid syntax.
+        
+
+    
