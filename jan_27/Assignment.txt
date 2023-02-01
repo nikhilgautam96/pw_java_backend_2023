@@ -1,0 +1,14 @@
+NOTE : Java is both "compiled and interpreted" language as because its source code is 
+        first compiled into a binary byte-code. This byte-code runs on the 
+        Java Virtual Machine (JVM), which is usually a software-based interpreter.
+
+Statically vs Dynamically typed :-
+    - Statically typed language : Programming languages are referred to as "Static typed" if the
+            memory of the variable is provided at the time of compilation.
+            eg :- Java, C, C++.
+            here we actually tell the compiler, a memory has to be allocated for a variable
+            of specified data type. By doing this we restrict the memory to accept data of 
+            specified type only.
+    - Dynamically typed language : Programming languages are said to as "Dynamically typed"
+            if the memory for the variable is provided at the time of execution.
+            eg :- Javascript, Python, PHP.
