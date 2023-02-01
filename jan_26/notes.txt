@@ -4,6 +4,8 @@ Conecepts involved :-
     . Main Method.
     . Classes and Objects.
 
+    NOTE : Environment variable that is used to set the java path is "JAVA_HOME".
+
 What is Programming ?
     - Makling a set of intructions that tells a computer how to carry out a task is called 
     as programmming.

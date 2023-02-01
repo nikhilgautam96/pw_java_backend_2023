@@ -1,0 +1,33 @@
+1. What is programming language ?
+    - a language understood by the public or user using which we provide a set of instructions
+        to the processor/computer to perform a specific task.
+2. Why do we need a programming language ?
+    - to make any computer perform any task we need to provide set of instructions.
+        now a computer/processor only understands low voltage(0) or high voltage(1).
+        since it is difficult to give complex instructions directly in form of volatges
+        hence, the need of programming language.
+3. Features of java ?
+    - 1. Robust 2. platform independent 3. object oriented 4. Simple 5. distributed
+        6. Dynamic 7. portable.
+4. What is an object ?
+    - Object is an independent entity of a class created using the class blueprint.
+     every object has the properties and behaviourof its class.
+5. What is a class ?
+    - A class is a collection of objects with similar traits, behaviour and attributes.
+        it is the blueprint from which the independent objects are created.
+6. Explain main() method in java ?
+    - possible syntax :-
+        "public static void main(String args[]) {...}"
+        "public static void main(String... args) {...}"
+    - the "public" and "static" keywords can be interchanged.
+    - the main method is where execution of a java program starts.
+    - keywords involved;
+        - main : name of method. it cannot be changed. ie. nikhilMain() is wrong as 
+                JVM always looks for "main()" method.   
+        - void : return type. main method does not return anything.
+        - static : can be called/invoked without creating the object of a class.
+                    ie. { "clasname".main() }
+        - public : for visibility.
+        - String args[] : the commandline arguments as a array of strings.
+    - JVM always looks for above metioned 4-5 attributes in main method. 
+        if any of them is missing then it gives an error.
