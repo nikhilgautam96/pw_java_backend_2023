@@ -1,8 +1,4 @@
-NOTE : Java is both "compiled and interpreted" language as because its source code is 
-        first compiled into a binary byte-code. This byte-code runs on the 
-        Java Virtual Machine (JVM), which is usually a software-based interpreter.
-
-Statically vs Dynamically typed :-
+1. What is Statically and Dynamically typed programming language ?
     - Statically typed language : Programming languages are referred to as "Static typed" if the
             memory of the variable is provided at the time of compilation.
             eg :- Java, C, C++.
@@ -12,3 +8,45 @@ Statically vs Dynamically typed :-
     - Dynamically typed language : Programming languages are said to as "Dynamically typed"
             if the memory for the variable is provided at the time of execution.
             eg :- Javascript, Python, PHP.
+
+2. What is the variable in java ?
+    - varables in java are actually titles/names given to a memory location(which act as a container 
+        that holds any value). these act as pointers to those memory location where we 
+        store data of any type.
+
+3. How to assign a value to a variable ?
+    - we can assign value to variable either in the declaration itself or seperately after the declaration
+        syntax : " Data_type variableName = [value]; "
+        eg :- 1. String name = "Nikhil"; // during declaration.
+              2. int x;
+                 x = 10; // seperately after declaration.
+
+4. What are Primitive data types in java ?
+    - the predefined data types are primitive data types.
+    there are 8 primitive data types in java, they are.
+    (boolean, char, byte, short, int, long, float, double)
+
+5. what are Identifiers in java ?
+    - Identifier is a name given to (class, package, interface, vaiable, or methods) in a java program.
+
+6. List the Operators in java ?
+    - 1. Arithmetic Operators
+      2. Relational/Comparison Operators
+      3. Logical Operators
+      4. Assignment Operators
+      5. Bitwise Operators
+7. Explain about increment and decrement Operators with example ?
+    - Increment and Decrement Operators are unary arithmetic Operators, that is they only need 1 operand.
+        they are of 2 types - ( post(value used 1st then operation done) & 
+                                pre(operation done first then value used) )
+        eg :-  int x = 10;
+                1. post-increment : 
+                        { System.out.println(x++); // first 10 is printed then value of x becomes 11 }
+                2. pre-increment :
+                        { System.out.println(++x); // first value of x is incremented to 11 then 11
+                             is printed then }
+                3. post-decrement :
+                        { System.out.println(x++); // first 10 is printed then value of x becomes 9 }
+                4. pre-decrement :
+                        { System.out.println(++x); // first value of x is decremented to 9 then 9
+                             is printed }

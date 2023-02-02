@@ -1,0 +1,81 @@
+NOTE : Java is both "compiled and interpreted" language as because its source code is 
+        first compiled into a binary byte-code. This byte-code runs on the 
+        Java Virtual Machine (JVM), which is usually a software-based interpreter.
+
+Statically(weekly) vs Dynamically(Strongly) typed :-
+    - Statically typed language : Programming languages are referred to as "Static typed" if the
+            memory of the variable is provided at the time of compilation.
+            eg :- Java, C, C++.
+            here we actually tell the compiler, a memory has to be allocated for a variable
+            of specified data type. By doing this we restrict the memory to accept data of 
+            specified type only.
+    - Dynamically typed language : Programming languages are said to as "Dynamically typed"
+            if the memory for the variable is provided at the time of execution.
+            eg :- Javascript, Python, PHP.
+
+Data Types :-
+    NOTE : {
+        byte a = 10;
+        byte b = 20;
+        byte c = a + b; // will give compile time error eventhough the result is well within the 
+                            limit of "byte" data type ie (-127 to 128).
+                            bcz the result is "int" as neither operand is (float, double, long).
+                            so we will need an integer variable to store the result.
+        int d = a + b; // this will work.
+    }
+
+    NOTE : {
+        float x = 45.5; // will give compile time error as by default the java compiler takes 
+                        decimal values as double type. so to make it as float we need to 
+                        specify by using "45.5f" or "45.5F" . this will make it as float.
+    }
+
+    Reason :-
+                        Result Types of Arithmetic Operations
+            Data Type of Result	                    Data Type of Operands
+            long	                Neither operand is a float or a double (integer arithmetic); 
+                                        at least one operand is a long.
+            int	                    Neither operand is a float or a double (integer arithmetic); 
+                                        neither operand is a long.
+            double	                At least one operand is a double.
+            float	                At least one operand is a float; neither operand is a double.
+
+                        Unary Arithmetic Operators
+            Operator	     Use	        Description
+                +	         +op	        Promotes operand to "int" if it's a {byte, short, or char}.
+                -	         -op	        Arithmetically negates operand.
+
+    There are two types of data types in Java:
+        - Primitive : 
+            1. boolean : 1 byte
+            2. char    : 2 byte (min value is '\u0000' or (0) and a max value of '\uffff' or (65,535).)
+            3. byte    : 1 byte
+            4. short   : 2 byte
+            5. int     : 4 byte
+            6. long    : 8 bytes
+            7. float   : 4 byte (uses IEEE single precision)
+            8. double  : 8 bytes (uses IEEE double precision)
+
+        - Non Primitive :
+            1. String
+            2. Arrays
+            3. Classes
+            4. Interfaces
+
+    NOTE : C uses ASCII encoding. that says there are 128 characters and we can use only 
+            those 128 characters provided. since 128 = 2 ^ 7 (ie 7 bits) but they increased 
+            the size of character by 1 bit and made it to 8-bits = 1 byte. 
+            that is why in C to store a character we need 1 byte of memory.
+    NOTE : Java on the other hand uses "UTF-16" type character encoding.
+            It says that there are 65,536 characters in the world that covers up the 
+            characters of all the languages known(most of the languages).
+            now 65,536 = 2 ^ 16 so, it uses 16-bits = 2-bytes of memory to store a character.
+            therefor we can say in JAVA "char" takes 2-bytes of memory.
+
+Identifiers :-
+    - An identifier is a name given to a { package, class, interface, method, or variable }.
+
+NOTE : Local variables are slightly different; the compiler never assigns a default 
+        value to an uninitialized local variable. If you cannot initialize your local variable 
+        where it is declared, make sure to assign it a value before you attempt to use it. 
+        Accessing an uninitialized local variable will result in a compile-time error.
