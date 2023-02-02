@@ -1,0 +1,41 @@
+Assignment Operator :-
+    NOTE : a += 10;   vs   a = a + 10;    {the first format is implemented more efficiently 
+                    by the Java run-time system than its equivalent }
+        { bcz while compilation the long form is actually converted to short format eventually. }
+        { that is why the first implementation runs faster than its equivalent long form. }
+
+Relational Operators :-
+    - They result in boolean "true" or "false".
+
+Logical Operators :-
+    - Logical AND (&&) : if(all the expressions are true) --> {result is true.}
+            Also, the moment we encounter a "False" value the expression(s) after that is ignored.
+            called as "Short-Circuiting".
+            eg : if(true && true && false && true && true)
+                    here only the first, second and third expressions are checked 
+                    after that we return the value as "False", and expressions 4th and 5th is ignored
+    - Logical OR (||) : if(any of the expression is true) --> {result is true.}
+            Also, the moment we encounter a "True" value the expression(s) after that is ignored.
+            called as "Short-Circuiting".
+            eg : if(false || false || true || false || true)
+                    here also only the first, second and third expressions are checked 
+                    after that we return the value as "True", and expressions 4th and 5th is ignored.
+    - Logical NOT (!) : it just negates the value of the operand.
+            eg : boolean x = true;
+                 SOP("Negation is : " + !x); //This will print "false"
+
+Switch-Case :-
+    - In Java the order of "case" condition does not matter.
+        ie. we can write "default" at the begining and the rest cases after that, or
+        "default" in mid or end. the matching is done in such a way that if any 
+        case condition is matched it will execute its statements and the following
+        case's statements too, if no "break" is applied, otherwise it will just exit the switch block.
+    - We cannot use multiple "default" blocks as it throws "compile-time error".
+    - We cannot write sttements outside of the case indentation a it throws "compile-time error".
+
+Loops in Java :-
+    - Types :
+        1. while
+        2. do-while
+        3. for
+        4. for-Each

@@ -1,0 +1,27 @@
+1. What are the conditionl operators in java ?
+    - there are 3 conditional operators in java.
+        1. Logical AND (&&) : it returns true if all the boolean expression are true. 
+                    it stops checking expressions further once we encounter a "false" expression.
+        2. Logical OR (||) : it returns true if atleast one of the boolean expression is true.
+                    it stops checking expressions further once we encounter a "true" value.
+        3. Ternary Operator (?:) : it is short-hand or smaller version of if-else statement.
+                    if condition is true, statement-1 is executed else statement-2 is executed.
+
+2. What are the types of operators based on the number of operands ?
+    - 3 types of operators based on number of operands;
+        1. unary operator : that acts on one operand. eg : {unary increment/decrement operator}
+        2. binary operator : that acts upon 2 operands. eg : { Arithmetic operators like +, -, *, /, %}
+        3. Conditional/Ternary operator : that uses 3 operand.
+                eg. (condition) ? statement-1 : statement-2;
+                1st operand is condition itself, the condition is converted to boolean.
+                if condition is true--> statement-1 is executed otherwise--> statement-2 is executed.
+                statement-1 & statement-2 are other 2 operands.
+                
+3. Use of switch case in Java ?
+    - we use switch case when we want to do multiple operations based on the value of a variable.
+        in such a situation using switch-case is much more efficient that using if-else-if ladder.
+        switch-case works with - { int, long, byte, short, enum types, Strings, and 
+            with wrapper classes as well }
+
+4. what is the priority levels of arithmetic operations in java ?
+    - 
