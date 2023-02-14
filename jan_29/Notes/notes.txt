@@ -1,0 +1,11 @@
+Taking input :-
+    1. Using "Scanner" :-
+        - next() vs nextLine()
+    2. Using "Buffered-Reader" :-
+        -
+    3. Using "Fast-Reader" :-
+        -
+    
+print() vs println() :-
+    - print() function prints the text on output screen and moves the cursor to next character.
+    - println() function prints the text and moves cursor to next line.
