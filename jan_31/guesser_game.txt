@@ -1,0 +1,5 @@
+The project is about guessing a Number :-
+    - There is a "Guesser" who guesses a number.
+    - Then there are 3 "Players", each try to guess what number was guessed by the "Guesser".
+    - Then there is a "Umpire" who takes guesses from Guesser as well as the Players.
+    - Finally a result is shown, whichever (1,2,3 or all) player guesses the correct number wins the game.

@@ -1,0 +1,12 @@
+1. How to create an object in java?
+    -
+2. What is the use of a new keyword in java ?
+    -
+3. What are the different types of variables in java ?
+    -
+4. What is the difference between Instance variable and Local variable ?
+    -
+5. In which area memory is allocated for Instance variable and Local Variable ?
+    -
+6. What is Method Overloading ?
+    -
