@@ -16,6 +16,7 @@
 
 5. What is the default value of Array ?
     - the default value of array depends upon the data-type of the array.
+    
 6. What is a 1D array with an exampple ?
     - a 1d array is simple array of elements.
         eg :- int a[] = {10, 20, 30, 40};
