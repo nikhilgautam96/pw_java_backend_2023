@@ -1,0 +1,25 @@
+1. What do you mean by an Array ?
+    - An array in java is a collection of fixed number of homogenious elements stored 
+        in a continious memory. java arrays are actually objects hence craeted in heap memory.
+
+2. How to create an Array ?
+    -  There are 2 ways to create an array in java.
+        1. using new => int a[] = new int[5];
+        2. initializing and declaring at same time => int a[] = {10, 20, 30, 40};
+
+3. Can we change the size of an array at run time ?
+    - no we cannot change the size of array at run time in java.
+
+4. Can you declare an array without assigning size of an array ?
+    - No we can't declare an array without its size, if we do so we have to initialize it in 
+        the same line otherwise it will throw compile time error.
+
+5. What is the default value of Array ?
+    - the default value of array depends upon the data-type of the array.
+6. What is a 1D array with an exampple ?
+    - a 1d array is simple array of elements.
+        eg :- int a[] = {10, 20, 30, 40};
+
+7. Write a program on a 2D array ?
+    - a 2d array is array of array references and each reference represents a 1d array of elements.
+        eg :- int b[][] = {{1,2, 3}, {10, 20, 30}, {5, 6}};
