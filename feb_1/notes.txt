@@ -8,6 +8,8 @@ Tricky Questios :-
         . int[] a[],b;      // a2 -> 2D, b2 -> 1D
         . int[] a[],[]b;    // CE
         . int[] []a,b;      // a -> 2D, b -> 1D
+        . int a[], b;       // a -> 1D, b -> int variable.
+        . int []c, d;       // a -> 1D, d -> 1D
 
 What is an ARRAY ?
     - It refers to index collection of fixed no of homogeneous data elements.

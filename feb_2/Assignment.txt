@@ -1,0 +1,36 @@
+1. What is the default value of array for different data types ?
+    - The default values for arrays of different data types is;
+        boolean	            false	
+        char                '\0'
+        byte                0
+        short               0
+        int	                0
+	    double	            0.0
+        float               0.0
+	    String	            null
+	    User-Defined Type	null
+
+2. Can you pass the negative number in Array size ?
+    - no we cannot pass the negative number as aray size in java.
+        it will throw - "java.lang.NegativeArraySizeException: "
+
+3. Where is Array stored in JVM memory ?
+    - Arrays are objects in java hence they too are stored in the "Heap Memory" .
+
+4. What are the disadvantages of array ?
+    - once declared its size cannot be changed. ie no dynamic allocation.
+      canoot store values of different data types.
+
+5. What is an Anonymous array in java ?
+    - An array without a name is called an anonymous array in java.
+        eg :- int x = obj.add(new int[]{10, 20, 30}); 
+        // here we are passing an anonymous array of size 3 to add() method.
+
+6. What are the different ways to traverse an array in java ?
+    - we can use ;
+        1. for Loop
+        2. for-each or enhanced for loop.
+
+7. What is the difference between length and length() ?
+    - length : an array class property.
+      length() : an String class method.

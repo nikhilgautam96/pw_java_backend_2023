@@ -1,0 +1,56 @@
+length vs length()
+    - length : it is a property of Array type classs in java. it is not a method.
+    - length() : it is method of String class that calculates the length of string.
+
+Anonymous array :
+    - An array without a name is called a Anonymous array.
+    - This type of array is created just for instance use.
+    - eg :
+        int add(int a[]) {
+            // ... logic
+        }
+        main() {
+             // below we passed an array that has no name, hence anonymous array.
+            int result = add( new int[]{10, 20, 30, 40} );
+        }
+    - Usage of Anonymous array internally by JVM :-
+
+        public class Demo{
+            public static void main(String []args){
+                System.out.println("Working with array");
+            }
+        }
+
+        javac Demo.java
+        java Demo 10 20 => Demo.main(new String[]{"10","20});   // size 2 anonymous aray is created.
+        java Demo => Demo.main(new String[]{});                 // size 0 anonymous aray is created.
+        java Demo 10 => Demo.main(new String[]{"10"});          // size 1 anonymous aray is created.
+        java Demo sachin tendulkar => Demo.main(new String[]{"sachin","tendulkar"});
+
+Can you make an array volatile?
+    - You can only make variables pointing to an array volatile. 
+        If an array is changed by replacing individual elements, 
+        then guarantees provided by volatile variable will not be held.
+
+ArrayIndexOutOfBoundsException :-
+    - If we try to access the index which is not in the array range then it would result in an
+        Exception called “ArrayIndexOutOfBoundsException”.
+        eg :-
+            public class Demo{
+                public static void main(String []args){
+                    int[] a = {10,20,30,40,50}
+                    for(int i =0;i<=5;i++)
+                        System.out.println(a[i]);
+                }
+            }
+          Output
+            10
+            20
+            ?0
+            40
+            50
+            Exception in Thread main java.lang.ArrayIndexOutOfBoundException
+
+Diadvantage of Array
+    - once we create the size cannot be increased or decreased
+    - It stores only homogeneous data elements.
