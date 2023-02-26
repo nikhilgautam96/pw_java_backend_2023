@@ -1,0 +1,74 @@
+. String class is present in the "java.lang.String" package.
+. we don't need to import the "java.lang" package in our program as we can directly use it.
+. String - in java is an "object" hence it is also stored in "Heap Memory".
+
+. "String Constant Pool" :-
+    - String Pool in Java is a special storage space in Java Heap memory where string literals are stored.
+     It is also known by the names - "String Constant Pool" or "String Intern Pool". 
+     Whenever a string literal is created, the JVM first checks the String Constant Pool 
+     before creating a new String object corresponding to it.
+
+    Need of String Constant Pool :-
+        . When we create a String object, it uses some amount of space in the heap memory.
+        . Let's say we are creating n number of String objects with the same value, 
+            and distinct memory is allocated to each of these string objects 
+            (though they all contain the same string).
+        . This is an inefficient usage of heap memory. In order to escalate the performance of 
+            our code and reduce memory usage, JVM optimizes the way in which strings are stored with 
+            the help of a string constant pool.
+
+    Advantages of String Pool in Java :-
+        1. Java String Pool allows "caching" of string. 
+            Caching here is the process of storing data in a cache. Cache improves performance 
+            and reduces memory usage.
+        2. Provides "reusability" : It saves time to create a new string if there is already a 
+            string with the same value present in the pool. The old string is reused, 
+            and its reference is returned.
+
+    Why did the String pool move from "PermGen" to the "normal heap area" ? 
+        . PermGen space is limited, the default size is just 64 MB. it was a problem with creating 
+            and storing too many string objects in PermGen space. That’s why the String pool 
+            was moved to a larger heap area.
+
+. Ways to Create Strings :-
+    1. String literal
+    2. Using new keyword
+    3. Using String.intern() method :
+        => In this method, First the String object is created(outside String Poll) then the JVM 
+            looks for the string value in string pool if the value is already present in the pool
+            then the reference to String Pool value/object is returned
+            otherwise,
+            the String created string object (outside the pool) is actually 
+            added to the string pool.
+
+. Types of Sting Object in java :-
+    1. Mutable (can be modified)
+    2. Immutable (cannot be modified) :
+            - example
+                String name = "Data";
+                    // the above string object is created in the "String Pool" in the heap area.
+                    // this type of String object doesn't allows duplication.
+                        eg :- String name1 = "nikhil";
+                              String name2 = "nikhil";
+                              . the 2 variables here actually point to same memory address
+                              inside the "String memory Pool".
+                              . this is why (name1 == name2) => "True"
+                              bcz in this method no matter how many variables we create,
+                              if the value is same no new memory will get allocated
+                              instead each variable will point to same address.
+
+                String name = new String("Nikhil");
+                                or
+                Char ch = {'a', 'b', 'c', 'd'};
+                String name = new String(ch);
+                    // the above String object is created in the heap area too, but outside the 
+                        string pool.
+                    // this type of string object allows duplication.
+                        eg :- String name1 = new String("Nikhil");
+                              String name2 = new String("Nikhil");
+                              . there will be 2 different memory address allocated for the 2 diff
+                              variables eventhough they both have same value.
+                              . this is the reason why (name1 == name2) gives => "False"  
+                              . but (name1.equals(name2)) => "True"
+                
+          
