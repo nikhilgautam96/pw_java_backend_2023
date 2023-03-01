@@ -10,7 +10,7 @@
 
     Need of String Constant Pool :-
         . When we create a String object, it uses some amount of space in the heap memory.
-        . Let's say we are creating 'n' number of String objects with the same value, 
+        . Let's say we are creating n number of String objects with the same value, 
             and distinct memory is allocated to each of these string objects 
             (though they all contain the same string).
         . This is an inefficient usage of heap memory. In order to escalate the performance of 
@@ -73,5 +73,3 @@
                               variables eventhough they both have same value.
                               . this is the reason why (name1 == name2) gives => "False"  
                               . but (name1.equals(name2)) => "True"
-                
-          

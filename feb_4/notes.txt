@@ -1,0 +1,6 @@
+Ways to Compare :-
+    1. "==" : compares the references of the string object.
+    2. "equals()" : compares the content of the String object.
+
+'+'   vs   Concatenation :-
+    . 
