@@ -120,6 +120,10 @@
                 String s3 = s1 + s2;   // in heap outside SCP, but a copy is also created in SCP.
                                        // since reference to s1 and s2 were used.
                 String s4 = "Nikhil" + "Gautam" + "is";   // in SCP
+        . Miscellaneous :
+            - String x = "Nik_" + 100 + 99;                 // "Nik_10099"
+              String y = 100 + 99 + "_Nik";                 // "199_Nik"
+              String z = 100 + 99 + "_Nik_" + 100 + 99;     // "199_Nik_10099"
     
     2. concat() : inbuilt method so allocates memory outside SCP in Heap.
         . eg :- String s1 = "pw";                   // in SCP.
