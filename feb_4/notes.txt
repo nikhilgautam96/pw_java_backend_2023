@@ -2,5 +2,45 @@ Ways to Compare :-
     1. "==" : compares the references of the string object.
     2. "equals()" : compares the content of the String object.
 
-'+'   vs   Concatenation :-
-    . 
+'+'   vs   concat() :-
+    1. '+' : does not allocates memory outside SCP unless reference to string objects is used.
+        . eg :- String s1 = "sachin";  // in SCP
+                String s2 = " Nikhil"  // in SCP
+                String s3 = s1 + s2;   // in heap outside SCP, but a copy is also created in SCP.
+                                       // since reference to s1 and s2 were used.
+                String s4 = "Nikhil" + "Gautam" + "is";   // in SCP
+    
+    2. concat() : inbuilt method so allocates memory outside SCP in Heap.
+        . eg :- String s1 = "pw";                   // in SCP.
+                String s2 = s1.concat(" skill");    // in Heap outside SCP, a copy in SCP too.
+                s1.concat(" classes");              // in Heap outside SCP, but it is not referenced
+                                                    // also a copy is made in SCP too.
+                String s3 = new String("Hey ");     // in Heap outside SCP. copy in SCP.
+                s3 = s3.concat("Nikhil");           // in Heap outside SCP, S3 points to this object
+                                                    // copy in SCP. older s3 value remains dereferenced.
+
+Inbuilt String Methods :-
+    . Any inbuilt methods when used will allocate memory for the string object in Heap outside SCP.
+        1. public char charAt(int index)    
+            - index can't be -ve or more than length of string.
+            - StringArrayIndexOutOfBoundsException.
+        2. public String concat(String str)
+        3. public boolean equals(Object o)
+            - It is used for Content Comparison, 
+            - In String class equals() method is Overridden to check the 
+            content of the object. It is used for Content Comparison without comparing the case.
+        4. public String subString(int begin)
+        5. public String subString(int begin,int end)
+        6. public int length()
+        7. public String replace(char old, char new)
+        8. public String toLowerCase()
+        9. public String toUpperCase()
+            - eg:   String s1 = "HEY";                     // in SCP
+                    String s2 = "hey".toUpperCase();       // in Heap outside SCP.
+                    (s1 == s2)  => "false"                 // since references are being checked.
+                    (s1.equals(s2))  => "true"             // since contents are being checked.
+        10. public String trim()
+        11. public int indexOf(char ch)
+            - returns (-1) if char not present.
+        12. public int lastIndexOf(char ch)
+            - returns (-1) if char not present.

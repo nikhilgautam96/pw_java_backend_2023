@@ -1,6 +1,11 @@
 . String class is present in the "java.lang.String" package.
 . we don't need to import the "java.lang" package in our program as we can directly use it.
 . String - in java is an "object" hence it is also stored in "Heap Memory".
+. The memory for value of String objects is allocated in the heap area, but the 
+    reference to those objects/object values are still in the stack area.
+    by reference here we mean the variables pointing to those string objects.
+. Whenever we use any "inbuilt" string method or the "new" keyword or "reference" to any other string, 
+    the string object is allocated memory outside the SCP but in heap area.
 
 . "String Constant Pool" :-
     - String Pool in Java is a special storage space in Java Heap memory where string literals are stored.
@@ -10,7 +15,7 @@
 
     Need of String Constant Pool :-
         . When we create a String object, it uses some amount of space in the heap memory.
-        . Let's say we are creating n number of String objects with the same value, 
+        . Let's say we are creating 'n' number of String objects with the same value, 
             and distinct memory is allocated to each of these string objects 
             (though they all contain the same string).
         . This is an inefficient usage of heap memory. In order to escalate the performance of 
@@ -29,13 +34,19 @@
         . PermGen space is limited, the default size is just 64 MB. it was a problem with creating 
             and storing too many string objects in PermGen space. That’s why the String pool 
             was moved to a larger heap area.
+    
+    Garbage Collection in SCP :-
+        . Garbage Collector cannot access SCP Area, Even thosgh Object does not have any reference 
+            still object is not eligible for GC.
+        . All SCP objects will be destroyed only at the time of JVM ShutDown.
 
 . Ways to Create Strings :-
     1. String literal
     2. Using new keyword :
         => String x = new String("Nikhil");
-            - here the string object memory is allocatedin heap area but outside the String constant pool.
+            - here the string object memory is allocated in heap area but outside the String constant pool.
             - but a copy of this string is also created in the String Constant Pool for internal reference.
+            - the reference will always point to Heap.
     3. Using String.intern() method :
         => In this method, First the String object is created(outside String Poll) then the JVM 
             looks for the string value in string pool if the value is already present in the pool
@@ -45,8 +56,14 @@
             added to the string pool.
 
 . Types of Sting Object in java :-
-    1. Mutable (can be modified)
+    1. Mutable (can be modified) :
+            - Once if we create a String, on that String if we try to perform any operation and if those 
+                changes get reflected in the same oblect then such strings are called “Mutable String”.
+                Example : StringBuffer, StringBuilder.
     2. Immutable (cannot be modified) :
+            - In java String object is by default immutable, meaning once the object is created we cannot
+                change the value of the object, if we try to change then those changes will be
+                reflected on the new object not on the existing object.
             - example
                 String name = "Data";
                     // the above string object is created in the "String Pool" in the heap area.
@@ -73,3 +90,21 @@
                               variables eventhough they both have same value.
                               . this is the reason why (name1 == name2) gives => "False"  
                               . but (name1.equals(name2)) => "True"
+            - String class Constructor :
+                1. String s = new String();
+                    - Creates an Empty String Object.
+                2. String s = new String(String literals);
+                    - Creates an Object with String literals on Heap.
+                3. String s = new String(StringBuffer sb)
+                    - Creates an equivalent String Object for StringBuffer.
+                4. String s = new String(char[] ch)
+                    - Creates an equivalent String Object for Character array.
+                        eg :    char[] ch = {'a','b','c'} ;
+                                String s = new String(ch);
+                                System.out.println(s); // "abc"
+                5. String s = new String(byte[] b)
+                    - Creates an equivalent String Object for byte array.
+                        eg :    byte[] b = {100,101,102};
+                                String s = new String(b);
+                                System.out.println(s); // "def"  
+                        {the byte value are treated as Ascii and gets converted to char counterparts.}

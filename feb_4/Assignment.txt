@@ -1,0 +1,62 @@
+1. Write a simple String program to take input from user.
+    -
+    import java.util.*; 
+    Class Sample {
+        public static void main(String args[]) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter your input string");
+            String input = sc.nextInt();
+            System.out.println("The input is " + input);
+        }
+    }
+
+2. How do you concatenate two strings in java? example?
+    - there are two ways to concatenate strings in java.
+        1. using concat() method :
+            - eg. "Nikhil".concat(" Gautam");   // Nikhil Gautam.
+        2. using '+' operator :
+            - eg. String s = "Nikhil" + " " + "Gautam"; // Nikhil Gautam.
+
+3. How do you find the length of a string in java. Explain with an example.
+    - using length() method.
+        eg : String s = "Nikhil";
+            System.out.println(s.length()); // 6
+
+4. How do you compare two strings in java? give an example.
+    - 4 ways to compare :
+        1. '==' operator : eg- if("Nik" == "Nik")   //true. since both are pointing to same object in SCP.
+        2. 'equals()' method : eg- if("Nik".equals("Nik"))  //true. since it checks the content.
+        3. 'equalsIgnoreCase()' method : eg- if("NIK".equalsIgnoreCase("nik"))  //true.
+        4. 'Object.equals()' : eg- Object.equals("a", "a");  // true.
+
+5. Write a program to find the length of the string "refrigerator".
+    - class Sample {
+        public static void main(String args[]) {
+            System.out.println("length is : " + "refrigerator".length()); // 12.
+        }
+    }
+
+6. Write a program to check if the letter 'e' is present in the word 'Umbrella'.
+    - class Sample {
+        public static void main(String args[]) {
+            if("Umbrella".indexOf('e') >= 0)
+                System.out.println("character is present ");
+            else
+                System.out.println("character is not present ");
+        }
+    }
+
+7. Write a program to delete all consonants from the string "Hello, have a good day" /
+    - class Sample {
+        public static void main(String args[]) {
+            String s = "Hello, have a good day";
+            String newString = "";
+            String notConsonant = "aeiouAEIOU ,.1234567890";
+            for(char ch : s.toCharArray()) {
+                if(notConsonant.indexOf(ch) >= 0) {
+                    newString += ch;
+                }
+            }
+            System.out.println("New String is : " + newString);
+        }
+    }
