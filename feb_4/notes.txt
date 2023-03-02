@@ -48,3 +48,44 @@ Inbuilt String Methods :-
             - returns (-1) if char not present.
         12. public int lastIndexOf(char ch)
             - returns (-1) if char not present.
+
+Miscellaneous :
+    -   String str =" ";
+        str.trim();
+        System.out.println(str.equals("")+ " " + str.isEmpty());    // false false
+        // bcz we are not assigning the result of str.trim() to str.
+        // if we did, "str = str.trim();"  then reslt would be "true true"
+    - public class Test {
+        public static void main(String[] args) {
+            String fName = "James";
+            String lName = "Gosling"; 
+            System.out.println(fName = lName);          // "Gosling"
+        }
+      }
+    - public class Test {
+        public static void main(String[] args) { 
+            String str1 = new String("Core"); 
+            String str2 = new String("CoRe"); 
+            System.out.println(str1 = str2);            // "CoRe"
+        }
+      }
+    - public class Test {
+        public static void main(String[] args){
+            String str = "Good";
+            change(str);
+            System.out.println(str);                    // "Good"
+        }
+        private static void change(String s) { 
+            s.concat("_Morning");
+        }
+      }
+    - public class Test {
+        public static void main(String[] args) {
+            StringBuilder sb = new StringBuilder("Good");
+            change(sb);
+            System.out.println(sb);                     // "Good_Morning"
+        }
+        private static void change(StringBuilder s) { 
+            s.append("_Morning");
+        }
+      }
