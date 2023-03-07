@@ -8,5 +8,74 @@ Question : If StringBuffer length is doubled by creating new object when max cap
 Mutable Strings :-
     - Once if we create a String, on that String if we try to perform any operation and if those 
         changes get reflected in the same object then such strings are called “Mutable Strings".
-        eg : StringBuffer, StringBuilder
-        
+        eg : StringBuffer, StringBuilder.
+    - When to use :
+        . If the content will change frequently then it is not recommended to go for String object cuz 
+            for every new change a new Object will be created
+        . To haDdle this type of requirement, we have a StringBuffer/StringBuilder concept.
+
+StringBuffer (Since Version 1.0 ):-
+    . Every method in StringBuffer is "Synchronized".
+    . At a time only 1 Thread is allowed to operate on StringBuffer object, thereby slowing performance.
+    . When max capacity of StringBuffer object is reached then,
+             capacity = (current_capacity + 1) * 2;
+    . StringBuffer sb = new StringBuffer();         // initial capacity = 16.
+    . StringBuffer sb = new StringBuffer( initialCapacity );        // initial capacity = initialCapacity.
+    . StringBuffer sb = new StringBuffer(String s);     // initial capacity = s.length() + 16.
+    . Important Methods :- 
+        1. public int length()
+        2. public int capacity()
+        3. public char charAt(int index)
+        4. public void setCharAt(int index,char ch)
+        5. public StringBuffer append(String s)
+        6. public StringBuffer append(int i)
+        7. public StringBuffer append(long l)
+        8. public StringBuffer append(boolean b)
+        9. public StringBuffer append(double d)
+       10. public StringBuffer append(float f)
+       11. public StringBuffer append(int index, Object o)
+       12. public StringBuffer insert(int index, String s)
+       13. public StringBuffer insert(int index, int i)
+       14. public StringBuffer insert(int index, long l)
+       15. public StringBuffer insert(int index, double d)
+       16. public StringBuffer insert(int index, boolean b)
+       17. public StringBuffer insert(int index, float s)
+       18. public StringBuffer insert(int index, Object o)
+       19. public StringBuffer delete(int begin, int end) // deletes the char from the begin index to end-1.
+       20. public StringBuffer deleteCharAt(int index)
+       21. public StringBuffer reverse()
+       22. public void setLength(int Length)
+                // It is used to consider only the specified no of characters and remove all the 
+                    remaining characters.
+                    eg :-   StringBuffer sb = new StringBuffer("sachinramesh");
+                            sb.setLength(6);
+                            System.out.println(sb);         // sachin
+       23. public void trimToSize()
+                // It is used to deallocate the extra allocated free memory such that capacity and size 
+                    are equal.
+                    eg :-
+                        StringBuffer sb = new StringBuffer(1000);
+                        System.out.println(sb.capacity());          // 1000
+                        sb.append("sachin");
+                        System.out.println(sb.capacity());          // 1000
+                        sb.trimToSize();
+                        System.out.println(sb);                     // sachin
+                        System.out.println(sb.capacity());          // 6
+       24. public void ensureCapacity(int capacity)
+                // It is used to increase the capacity dynamically based on our requirements.
+
+StringBuilder (Since Version 1.5 ) :-
+    . No methods a e Synchronized.
+    . No Threadsafe - At a time more than one thread can operate.
+    . Threads are not required to wait so performance is high.
+    . Important methods
+        1. append(Object obj)
+        2. append(String str)
+        3. insert(int offset, Object obj)
+        4. insert(int offset, String str)
+        5. delete(int start, int end)
+        6. deleteCharAt(int index)
+        7. replace(int start, int End, String str)
+        8. reverse()
+        9. toString()
+            

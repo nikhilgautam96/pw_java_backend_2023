@@ -1,0 +1,40 @@
+1. What is mutable String in java, explain with example ?
+    - Mutable Strings are objects on which if we try to perform any operation or make any 
+        changes/modification the change gets reflectd on the same object.
+        eg. StringBuffer, StringBuilder.
+    - We use such string objects if our requirement is frequent modification on the string objects.
+
+2. WAP to reverse a String.
+    - Class Reverse {
+        public static void main(String args[]) {
+            StringBuffer sb = new StringBuffer("PWSKILLS");
+            System.out.println("Original String is : "+sb);
+            sb.reverse();
+            System.out.println("Reverse String is : "+sb);
+        }
+      }
+
+3. WAP to reverse a sentence while preserving the position.
+    - Class Reverse {
+        public static void main(String args[]) {
+            String s = "Think Twice";
+            StringBuffer ans = new StringBuffer();
+            for(String temp : s.split(" ")) {
+                ans.append(new StringBuffer(temp).reverse().append(" "));
+            }
+            // remove white Sapce at end.
+            System.out.println("Reverse String is : "+ ans.toString().trim());
+        }
+      }
+
+4. WAP to sort a String Alphabetically.
+    - 
+    import java.util.*;
+    Class Sort {
+        public static void main(String args[]) {
+            String s = "zxcvbnmlkjhgfdsaqwertyuiop";
+            char arr[] = s.toCharArray();
+            Arrays.sort(arr);
+            System.out.println("Sorted String is : "+ String.valueOf(arr));
+        }
+    }
