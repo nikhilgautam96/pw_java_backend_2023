@@ -24,4 +24,42 @@
             with wrapper classes as well }
 
 4. what is the priority levels of arithmetic operations in java ?
-    - 
+    - The priority levels of arithmetic operators in java is as follows (*, /, %) >> (+, -).
+
+5. What are the conditional statements and use of conditional statements in java ?
+    - 3 conditional statements are there in java,
+        1. if-else statement.
+        2. switch statement.
+        3. Ternary Operator.
+
+6. What is the syntax of if-else statement ?
+    - if(condition) {
+        // if condition holds true below lines are executed. 
+        // if condition = false we fall into else block.
+        // executable lines.
+      } else {
+        // executable lines.
+      }
+      we can add more condition to else statement and make "if-elseif-else" ladder.
+
+7. what is the three types of iterative statements on java ?
+    - The 3 types of iterative statements are :-
+        1. while
+        2. do-while
+        3. for
+        4. there is an additional type called - "for each".
+
+8. write the difference between for loop and do-while loop ?
+    - for-loop : in this type of loop statement we check the condition first and then any line 
+                    inside the loop bock is executed.
+      do-while loop : in this type of loop statement atleast once the loop block statements are 
+                        executed before we check if the condition holds true or not.
+
+9. write a program to print numbers from 1 to 10 .
+    - class Print {
+        public static void main (String args[]) {
+            for(int i = 1; i<=10; i++) {
+                System.out.print(i+" ");
+            }
+        }
+    }

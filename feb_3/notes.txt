@@ -54,7 +54,32 @@
             otherwise,
             the String created string object (outside the pool) is actually 
             added to the string pool.
+        eg :- 
+            public class InternExample {  
+                public static void main(String args[]) {  
+                    String s1=new String("hello");  
+                    String s2="hello";  
+                    String s3=s1.intern();  //returns string from pool, now it will be same as s2  
+                    System.out.println(s1==s2); //false because reference variables are pointing to different instance  
+                    System.out.println(s2==s3); //true because reference variables are pointing to same instance  
+                }
+            }
 
+            public class InternExample2 {  
+                public static void main(String[] args) {          
+                    String s1 = "Javatpoint";  
+                    String s2 = s1.intern();  
+                    String s3 = new String("Javatpoint");  
+                    String s4 = s3.intern();          
+                    System.out.println(s1==s2);     // True  
+                    System.out.println(s1==s3);     // False  
+                    System.out.println(s1==s4);     // True       
+                    System.out.println(s2==s3);     // False  
+                    System.out.println(s2==s4);     // True        
+                    System.out.println(s3==s4);     // False          
+                }  
+            }
+            
 . Types of Sting Object in java :-
     1. Mutable (can be modified) :
             - Once if we create a String, on that String if we try to perform any operation and if those 

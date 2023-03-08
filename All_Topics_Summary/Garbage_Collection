@@ -1,0 +1,41 @@
+Read the entire Article for revision :  "https://dzone.com/articles/java-memory-management"
+
+Reference Types :
+    1. Strong reference - The object on the heap it is not garbage collected while there is a strong 
+                            reference pointing to it, or if it is strongly reachable through a chain 
+                            of strong references.
+    2. Weak reference - a weak reference to an object from the heap is most likely to not survive 
+                        after the next garbage collection process.
+                        A nice use case for weak references are "caching" scenarios.
+    3. Soft reference - These types of references are used for more memory-sensitive scenarios, 
+                        since those are going to be garbage collected only when your application is 
+                        running low on memory.
+                    The Javadocs state, “all soft references to softly-reachable objects are 
+                    guaranteed to have been cleared before the virtual machine throws an 
+                    OutOfMemoryError.”
+    4. Phantom reference - Used to schedule post-mortem cleanup actions, since we know 
+                            for sure that objects are no longer alive
+
+Garbage Collection Process :
+    . This process is triggered automatically by Java, and it is up to Java when and whether 
+        or not to start this process.
+    . It is actually an expensive process. When the garbage collector runs, all threads 
+        in your application are paused (depending on the GC type).
+    . This is actually a more complicated process than just garbage collecting and freeing up memory.
+    . you may explicitly call System.gc(), You only kind of ask Java to run the garbage collector, 
+        but it’s, again, up to it whether or not to do that. Anyway, explicitly calling System.gc().
+
+Garbage Collector Types :
+    1. Serial GC    :   A single thread collector. 
+    2. Parallel GC  :   uses multiple threads to perform the garbage collecting process. 
+                        Also known as the throughput collector.
+    3. Mostly Concurrent GC  :   it works concurrent to the application. 
+                                However, there is a reason why it is “mostly” concurrent. It does 
+                                not work 100% concurrently to the application. There is a period 
+                                of time for which the threads are paused. 
+                                Still, the pause is kept as short as possible to achieve the best 
+                                GC performance. 
+        there are 2 types of mostly concurrent GCs:
+                (i) Garbage First  : high throughput with a reasonable application pause time. 
+               (ii) Concurrent Mark Sweep  : The application pause time is kept to a minimum. 
+                                        As of JDK 9, this GC type is deprecated.

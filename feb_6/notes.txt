@@ -12,7 +12,7 @@ Mutable Strings :-
     - When to use :
         . If the content will change frequently then it is not recommended to go for String object cuz 
             for every new change a new Object will be created
-        . To haDdle this type of requirement, we have a StringBuffer/StringBuilder concept.
+        . To handle this type of requirement, we have a StringBuffer/StringBuilder concept.
 
 StringBuffer (Since Version 1.0 ):-
     . Every method in StringBuffer is "Synchronized".
