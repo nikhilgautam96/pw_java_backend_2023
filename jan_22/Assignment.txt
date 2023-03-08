@@ -1,0 +1,27 @@
+1. what is a computer ?
+    - A computer is an electronic device/machine that takes input does processing on the input
+        and then gives a certain output.
+
+2. what is RAM ?
+    - RAM stands for random access memory, it is a type of primary memory where data is stored 
+        till the computer is on, as soon as the computer is switched off the data is erased.
+
+3. where is data stored in computer ?
+    - Data is stored in the memory of the computer, it can be primary or secondary based on its purpose.
+        if the data needs to be stored for long time then secondary memory is used,
+        otherwise primary memory is used while we want the data to be stored until the computer is on.
+
+4. input device used to type text and numbers ?
+    - Keyboard.
+
+5. what are the output devices ?
+    - Monitor, Speaker, printer, etc.
+
+6. which is the input device that allows a user to move the cursor or pointer on the screen ?
+    - Mouse.
+
+7. Which language is directly understood by the computer without a translation program ?
+    - binary language (0's and 1's).
+
+8. what are input devices ?
+    - keyboard, mouse, etc.
