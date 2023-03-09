@@ -17,6 +17,28 @@ Types of Variables :-
             . Instance variables can be accessed directly from the Instance area. But cannot 
                 be accessed directly from a static area.
             . But by using object reference we can access instance variables from static area.
+            . default Values of Instance Variables.
+                byte varByte;               // 0
+                short varShort;             // 0
+                int varInt;                 // 0
+                long varLong;               // 0
+                boolean varBool;            // false
+                float varFloat;             // 0.0
+                double varDouble;           // 0.0
+                String s;                   // null
+                char ch;                    // .   { '.' here represents '\0' ie. "null", 
+                                                    as if we try to get ascii code it will show = 0 and the 
+                                                    ascii of '\0' is also = 0. 
+                                                    but the ascii of real dot '.' is = 46 }
+                int arr[];                  // null { as all non-primitives are objects and objects have
+                                                        "null" as default value.
+                                                        if we do "arr = new int[5];" 
+                                                        and print it will give = [0, 0, 0, 0, 0] }
+                double b[] = new double[5];                         // [0.0, 0.0, 0.0, 0.0, 0.0]
+                ArrayList<String> al = new ArrayList<>();           // []
+                HashMap<Integer, Integer> hm = new HashMap<>();     // {}
+                HashSet<Integer> hs = new HashSet<>();              // []
+                
         2. Static Variables
         3. Local variables :
             . It is stored inside the stack.
