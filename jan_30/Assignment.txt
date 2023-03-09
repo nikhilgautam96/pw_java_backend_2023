@@ -1,12 +1,43 @@
 1. How to create an object in java?
-    -
+    - To create an object in java we use the "new" keyword.
+        eg :-   Test obj  = new Test();
+        here "new" keyword allocates memory for object of "Test" class in the heap area.
+        and the constructor of Test() class is called. we can pass values is we want to the constructor.
+
 2. What is the use of a new keyword in java ?
-    -
+    - "new" is an operator or keyword which tells JVM to allocate memory in the heap area for the 
+        given class's object.
+
 3. What are the different types of variables in java ?
-    -
+    - there are 3 types of variables in java.
+        1. Instance Variable
+        2. Static Variable
+        3. Local Variable
+
 4. What is the difference between Instance variable and Local variable ?
-    -
+    - Instance variable :
+        . They are declared inside the class and outside any method/block/constructor.
+        . They are created and destroyed with the object.
+        . Their scope is same as scope of the Object.
+        . can be accessed using the object reference.
+        . they are assigned with some default values.
+    - Local Variable :
+        . They are declared inside of a block.
+        . They have block scope or child block scope.
+        . They are stored in the stack area of JVM.
+        . The local variables will be created as part of the block execution in which it is 
+            declared and destroyed once that block execution completes.
+        . default values are not assigned to these variables so it is recommended to assigned
+            some default values as not doing so would throw error.
+
 5. In which area memory is allocated for Instance variable and Local Variable ?
-    -
+    - Instance variable = Heap area ( as part of Object )
+        Local Variable = Stack Area ( as part of block execution context )
+
 6. What is Method Overloading ?
-    -
+    - It is the process of using the same method name but with different method signature
+        to reduce complexity of program.
+        . it is achieved by either having different number or type of argument in the
+            formal parameter of the method signature.
+        . it uses the concept of "automatic type promotion" if exact match of arguments is not 
+            found.
