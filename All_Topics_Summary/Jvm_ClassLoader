@@ -1,0 +1,36 @@
+Principles and Functionality of a java class loader :-
+    1. Delegation:      A class loader delegates the responsibility of loading a class to its parent 
+                    class loader before attempting to load it itself. This allows the class loader 
+                    to take advantage of any classes that have already been loaded by the 
+                    parent class loader.
+
+    2. Visibility:      A class loaded by a class loader is only visible to that class loader and 
+                    its child class loaders. This allows different class loaders to load 
+                    different versions of the same class without interfering with each other.
+
+    3. Uniqueness:      Each class is identified by its fully-qualified name (FQN) and is loaded by only 
+                    one class loader. This ensures that the same class is not loaded multiple 
+                    times by different class loaders.
+
+    4. Caching:         A class loader caches the classes that it loads to improve performance. This 
+                    allows the class loader to quickly return a class that has already been 
+                    loaded, rather than having to load it again.
+
+    5. Security:        A class loader enforces Java's security model by only allowing classes to access 
+                    resources and execute code that is within their scope of permissions.
+
+    6. Extensibility:   Java class loaders are extensible, allowing developers to create custom
+                    class loaders that can be used to load classes from specific locations 
+                    or with specific behaviours.
+
+    7. Dynamic nature: Class loading is a dynamic process and can happen at runtime. 
+                    Classes can be loaded, unloaded, and reloaded as the application runs.
+
+    8. Classpath:       Java classloaders use the classpath to locate the classes that they need 
+                    to load. The classpath is an ordered list of directories and JAR files 
+                    that contain the class files.
+
+    9. Loading order:   Java classloaders follow a specific order to load classes, 
+                    first it checks the memory, if class is not found in memory it checks the cache, 
+                    if class is not found in cache it checks the local file system, 
+                    if class is not found in local file system it checks the network.

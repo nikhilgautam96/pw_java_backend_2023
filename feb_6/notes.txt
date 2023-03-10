@@ -1,9 +1,9 @@
 Question : If StringBuffer length is doubled by creating new object when max capacity is exceeded
             then, we know a "final" StringBuffer object cannot refer to different
-            object and it will give compilation error when try to do that.
-            So, why if we try to increase a final StringBuffer beyond the max capacity
+            object and it will give compilation error when we try to do that.
+            So, what if we try to increase a final StringBuffer beyond the max capacity
             still it does not give any error even though a new object is created with double capacity
-            and the same final StringBuffer object is now pointing to thi different object ??
+            and the same final StringBuffer object is now pointing to this new different object ??
 
 Mutable Strings :-
     - Once if we create a String, on that String if we try to perform any operation and if those 
