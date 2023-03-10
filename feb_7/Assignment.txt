@@ -33,10 +33,12 @@
         it is also shared among all the instances of the class.
 
 6. What is the use of Static blocks in java ?
-    - In general java static blocks are used to initialize the static variables of the class.
-    also if we want a certain line of code or logic to be executed before the main() method
-    gets invoked we can place that in the static block as the static block gets
-    executed before the main() method.
+    - . In general java static blocks are used to initialize the static variables of the class.
+        also if we want a certain line of code or logic to be executed before the main() method
+        gets invoked we can place that in the static block as the static block gets
+        executed before the main() method.
+      . It gets executed only once when the class gets loaded. It is not necessary to execute 
+        it again when creating different objects after the first time.
 
 7. Difference between Static and Instance Variables ?
     - Static Variables :
@@ -49,7 +51,7 @@
             scope of the ".class file" .
         . static variables can be accessed only from both static as well as instance areas directly.
         . We can access static variables eitheir by class name or by object reference.
-        
+
       Instance Variables :
         . If the value of a variable is varied from object to object such types of variables 
             are called instance variables.
