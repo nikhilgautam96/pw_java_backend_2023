@@ -27,10 +27,11 @@
                     this.name = name;
                 }
                 public void getId() {
-                    return this.id;
+                    return id;  // here we don't need to use "this" keyword bcz, compiler understands
+                                // "id" is instance variable and not the method level local variable.
                 }
                 public void getName() {
-                    retur this.name;
+                    retur name;
                 }
             }
             class Sample {
