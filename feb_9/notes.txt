@@ -1,3 +1,36 @@
+Question :-
+    class Student {
+            private String name;
+            private Integer id;
+            private String address;
+            // Student(String name, Integer id, String address) {
+            //     name = name;
+            //     id = id;
+            //     address = address;
+            // }
+            public void display() {
+                System.out.println("Name is :: " +name);
+                System.out.println("Id is :: " +id);
+                System.out.println("Address is :: " +address);
+            }
+    }
+    public class MyClass {
+        private int x;
+        public static void main(String[] args) {
+            Student std = new Student();
+            MyClass ob = new MyClass();
+            std.display();
+            System.out.println(ob.x);
+        }
+    }
+    OUTPUT :-
+        Name is :: null
+        Id is :: null
+        Address is :: null
+        x is :: 0
+    * why in above code the instance variable "x" of "MyClass" has default value as "0" but
+        "id" of  "Student" has default value "null" by default.
+
 Need of Encapsulation :-
     . To the outside world, the data should not be exposed directly.
     . In order to provide the controlled access, we need to use “Encapsulation”.
@@ -86,7 +119,7 @@ Shadowing Problem and "this" keyword :-
         }
         OUTPUT :
             Name is :: null
-            Id is :: 0
+            Id is :: null
             Address is :: null
 
     * To avoid above problem we use "this" keyword.
