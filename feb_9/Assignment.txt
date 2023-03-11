@@ -1,0 +1,79 @@
+1. What is encapsulation in java? why is it called Data hiding?
+    - The process of binding the data and corresponding methods in a single unit called class
+        is called as abstraction.
+      It is a protective shield that prevents the data from being accessed from the outside world.
+      If any class follows data hiding and abstraction then it is called "encapsulated class".
+        "Encapsulation = Data Hiding + abstraction"
+
+2. What are the important features of encapsulation?
+    - . Allows Data hiding
+      . Increases Flexibility
+      . Reduce the "coupling" of modules and increase the "cohesion" inside them.
+      . Provides security.
+
+3. What are getter and setter methods in Java explain with an example?
+    - getter and setter are the public methods in an encapsulated class that is used to access
+        the private data members of that class.
+        we actually achieve abstraction part of encapsulation by using these methods.
+        eg :-
+            class Example {
+                private int id;
+                private String name;
+
+                public void setId(int id) {
+                    this.id = id;
+                }
+                public void setName(String name) {
+                    this.name = name;
+                }
+                public void getId() {
+                    return this.id;
+                }
+                public void getName() {
+                    retur this.name;
+                }
+            }
+            class Sample {
+                public static void main(String args[]) {
+                    Example obj = new Example();
+                    obj.setId(10);
+                    obj.setName("Nikhil");
+                    System.out.println(obj.getId());        // 10
+                    System.out.println(obj.getName());        // "Nikhil"
+                }
+            }
+
+
+4. What is the use of this keyword explain with an example?
+    - The this keyword refers to the current object in a method or constructor.
+        The most common use of the this keyword is to eliminate the confusion between 
+        class attributes and parameters with the same name 
+        (because a class attribute is shadowed by a method or constructor parameter).
+
+5. What is the advantage of encapsulation?
+    - . Data Hiding : 
+            . It is a way of restricting the access of our data members by hiding the 
+                implementation details.
+            . We can achieve security.
+    . Maintability and Modularization becomes easy :
+            . As encapsulation makes it easier to change the implementation without affecting other 
+                parts of the code.
+    . Increased Flexibility : 
+            . It provides flexibility to the the user to use the system very easily.
+            . We can make the variables of the class read-only or write-only depending on our 
+                requirement. If we wish to make the variables read-only then we have to omit the 
+                setter methods like setName(), setAge(), etc. or if we wish to make the variables 
+                write-only then we have to omit the get methods like getName(), getAge(), etc.
+    . Testing code is easy : 
+            . Encapsulated code is easy to test for unit testing.
+    . Reusability: 
+            . Encapsulation also improves the re-usability and is easy to change with new requirements.
+            . Enhancement becomes easy.
+
+6. How to achieve encapsulation in java? Give an example.
+    - . Every data member inside the class should be declared as private, and to access this
+        private data we need to have setter and getter methods.
+    . By using private modifiers we can implement "Data Hiding".
+    . By using getters and setters we implement "Abstraction" as the class is exposed to 
+        the end-user or the world without providing any details behind implementation.
+                "Encapsulation = Data Hiding + abstraction"

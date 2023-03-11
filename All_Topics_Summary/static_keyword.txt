@@ -1,0 +1,278 @@
+static Objects :
+    . There is no such concept of static object in java.
+    . If we declare a static object then only the reference variable becomes static and
+        is thus initialized with "null" before the main method is invoked.
+
+Static keyword :
+    . The static keyword helps in memory management .
+    . The static keyword is a property of a class rather than an instance of the class .
+
+Static Variables :-
+    . These are "Global Variables".
+    . They can be created at "class level" only.
+    . Should be declared inside the class but outside any method/block/constructor.
+    . A single copy of the variable is created and divided among all objects/Instances at the class level.
+    . In java, static blocks and static variables are executed in the order in which they appear.
+    . Inside the "class loader subsystem", 
+        1. in "Linking" phase : for all static variables memory gets allocated and assigned 
+                                with default values.
+        2. in "Initialization" phase : all Static Variables will be assigned with their original
+                                values. Also static block gets executed here.
+    . Static variables will be created at the time of class loading and destroyed at the time 
+        of class unloading hence the scope of the static variable is exactly the same as the 
+        scope of the ".class file" .
+    . Static variables will be stored in the "Method area" of the heap.
+    . Static variables can be accessed from both instance and static areas directly.
+    . We can access static variables eitheir by class name or by object reference but usage of 
+        class name is recommended.
+    . But within the same class it is not required to use class names we can access directly.
+    
+Static Block :-
+    . These are blocks that get executed directly automatically in the "class loader subsystem"
+        in its "Initialization" phase .
+    . If we want to perform any activity at the time of loading a ".class file" we have to 
+        define that activity inside the static block .
+    . This block gets executed before the main method .
+    . The order of execution is same as order in which they are defined within the class (top to bottom) .
+    . Normally it is used to perform initialization of static variables .
+
+Static Methods :-
+    . static methods belong to the class and is shared with instance of the class object.
+    . static methods cannot use "this" or "super" keywords.
+    . Abstract methods cannot be static.
+    . static methods cannot be overridden.
+        - since method overriding relies on dynamic binding at runtime, but static methods 
+            are bonded at compile time with static binding. 
+            As a result, we are unable to override static methods.
+        - If static methods are redefined by a derived class, then it is not Method Overriding 
+            but "Method Hiding".
+            eg :- 
+                // Parent class
+                class Base {
+
+                    // Non-static method which will be overridden in derived class
+                    public int add(int a, int b) {
+                        System.out.println("In the base class add() .");
+                        return a + b;
+                    }
+
+                    // static method which will not be overridden
+                    //in the derived class
+                    public static void print() {
+                        System.out.println("In the Base class print() .");
+                    }
+                }
+
+                // Child class
+                class Derived extends Base {
+
+                    // This method overrides add() of Base class
+                    // because it not a static method
+                    public int add(int a, int b) {
+                        System.out.println("In the child class add() .");
+                        return a + b;
+                    }
+
+                    // This method is hidden by print() in Base
+                    public static void print() {
+                        System.out.println("In the child class print() .");
+                    }
+                }
+
+                // Driver class
+                public class Driver {
+                    public static void main(String args[]) {
+                        Base obj = new Derived();
+
+                            // Here Derive's add() is called
+                            //according to overriding rules
+                        System.out.println(obj.add(4, 5));
+
+                            //This should invoke the print method of class Derive,
+                            //as per overriding rules.
+                            //Because a static method can't be overridden,
+                            //it uses Base's print instead
+                        obj.print();
+                    }
+                }
+                OUTPUT :
+                    In the child class add().
+                    9
+                    In the Base class print().
+            
+        * Important Conclusion :
+            . For static methods - the method is called based on the "type of reference", not 
+                        the object being referred to, implying that the method call is determined 
+                        at compile time.
+            . For non-static methods - the method is called based on the "type of object" being 
+                        referenced, rather than the type of reference, implying that method 
+                        calls are made at runtime.
+            . A static method cannot hide an instance method, and an instance method cannot 
+                override it. The following program illustrates this.
+                eg :-
+                    // Parent class
+                    class Base {
+
+                        // non-static method
+                        public int add(int a, int b) {
+                            System.out.println("In the base class add() .");
+                            return a + b;
+                        }
+
+                        // static method
+                        public static void print() {
+                            System.out.println("In the Base class print() .");
+                        }
+                    }
+
+                    // Child class
+                    class Derived extends Base {
+
+                        // addition of static causes compilation error
+                        public static int add(int a, int b) {
+                            System.out.println("In the child class add() .");
+                            return a + b;
+                        }
+
+                        // removal of static causes compilation error
+                        public void print() {
+                            System.out.println("In the child class print() .");
+                        }
+                    }
+
+                    // Driver class
+                    public class Driver {
+                        public static void main(String args[]) {
+                            Base obj = new Derived();
+
+                            // Here Derive's add() is called
+                            //according to overriding rules
+                            System.out.println(obj.add(4, 5));
+
+                            //This should invoke the print method of class Derive,
+                            //as per overriding rules.
+                            //Because a static method can't be overridden,
+                            //it uses Base's print instead
+                            obj.print();
+                        }
+                    }
+                    OUTPUT :
+                        Main.java:20: error: add(int,int) in Derived cannot override add(int,int) in Base
+                        public static int add(int a, int b) {
+                                            ^
+                        overriding method is static
+                        Main.java:26: error: print() in Derived cannot override print() in Base
+                        public void print() {
+                                    ^
+                        overridden method is static
+                        2 errors
+
+    . static methods can only access static variables and other static methods.
+    eg :-
+        class Citizen {
+            static String country;
+            Citizen() {
+                country = "Pakistan";
+            }
+            public static void setCountry(String c) {
+                country = c;
+            }
+            public void getCountry() {
+                System.out.printf("Current country: %s \n", country);
+            }
+            public static void main( String args[] ) {
+                Citizen c1 = new Citizen();
+                Citizen c2 = new Citizen();
+                Citizen c3 = new Citizen();
+                c1.getCountry();                    // "Current country: Pakistan "
+                c2.getCountry();                    // "Current country: Pakistan "
+                c3.getCountry();                    // "Current country: Pakistan "
+                Citizen.setCountry("USA");
+                c1.getCountry();                    // "Current country: USA "
+                c2.getCountry();                    // "Current country: USA "
+                c3.getCountry();                    // "Current country: USA "
+            }
+        }
+
+Static Inner Classes :-
+    . Static classes in Java can be created only as nested classes.
+        - Types of classes :
+            1. Nested class - Nested class can be static or non-static. The non-static nested class
+                             is known as an inner class.
+                    1. Inner class :- 
+                            . Inner classes are the classes that are "non-static and nested" . 
+                                They are written inside an outer class. 
+                            . We are unable to create an instance of the inner class without creating an 
+                                instance of its given outer class. 
+                            . This is needed when the user has to create a class but doesn't want 
+                                other classes to access it. Here we can use an inner class for that reason.
+                            . Inner class can access the static as well as the non-static members of 
+                                the outer class.
+            
+            2. Outer class - Outer classes are the classes in which nested or inner classes are defined.
+    
+    . An instance of a static nested class can be created without the instance of the outer class.
+        eg :- 
+            class Outer {
+                // static member of the outer class
+                private static char grade = 'A';
+                // Static class
+                static class Nested {
+                    //non-static method
+                    public void fun() {
+                        // nested class can access the static members of the outer class
+                        System.out.println("Grade: " + grade);
+                    }
+                }
+                public static void main(String args[]) {
+                    // creating an object of nested class without creating an object of the outer class
+                    Outer.Nested obj = new Outer.Nested();
+
+                    obj.fun();             // "Grade: A"
+                }
+            }
+    
+    . Static nested class can access only the static members of the outer class and 
+            not the non-static members.
+
+    . A Comlex program to understand static keyword :-
+        eg :-    
+            Class Myclass {
+                private static char grade = 'A';
+                static {
+                    System.out.println("Outer Static block 1");
+                }
+
+                // Static class
+                static class Nested {
+                    static int x = 10;
+                    static {
+                        x = 20;
+                        System.out.println("Nested Static block");
+                    }
+
+                    //non-static method
+                    public void fun() {
+                        // nested class can access the static members of the outer class
+                        System.out.println("Grade: " + grade);
+                    }
+                    public static void print() {
+                        System.out.println("hey : "+x);
+                    }
+                }
+                static {
+                    System.out.println("Outer Static block 2");
+                }
+                public static void main(String args[]) {
+                    MyClass.Nested obj = new MyClass.Nested(); //creating an object of nested
+                    // class without creating an object of the outer class.
+                    obj.fun();
+                    Nested.print();
+                }
+            }
+        OUTPUT :-
+            Outer Static block 1
+            Outer Static block 2
+            Nested Static block
+            Grade: A
+            hey : 20
