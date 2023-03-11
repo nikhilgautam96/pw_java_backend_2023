@@ -21,7 +21,7 @@
                 private String name;
 
                 public void setId(int id) {
-                    this.id = id;
+                    this.id = id;       // we use "this" keyword only in "Shadowing" situation.
                 }
                 public void setName(String name) {
                     this.name = name;
