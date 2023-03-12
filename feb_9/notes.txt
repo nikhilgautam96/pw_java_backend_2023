@@ -21,6 +21,11 @@ Question :-
             MyClass ob = new MyClass();
             std.display();
             System.out.println(ob.x);
+            System.out.println("id is :: "+ std.getId()); // This line gives below error.
+                // Exception in thread "main" java.lang.NullPointerException: Cannot invoke 
+                // "java.lang.Integer.intValue()" because "this.id" is null
+                // at Student.getId(MyClass.java:16)
+                // at MyClass.main(MyClass.java:111)
         }
     }
     OUTPUT :-
