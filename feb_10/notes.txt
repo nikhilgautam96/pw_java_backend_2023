@@ -1,0 +1,167 @@
+Constructor :-
+    . Piece of code that is used for initialization of object.
+    . Object creation is not enough, compulsorily we should perform initialization then only 
+        the object is in a position to provide the response properly.
+    . Even if we don't write a constructor explicitly a default constructor gets invoked
+        automatically during object creation  and it initializes the data members
+        with JVM default values.
+
+Rules for writing a constructor :-
+    . Name of constructor is same as name of the class.
+    . Constructor in java has no return type. but even if we provide one it won't result in 
+        compile time error, instead this block of code will then be treated as a "normal method".
+        eg:- class test {
+                void Test() {
+                    System.out.println("Hello");    // It is not a constructor, it is a method.
+                }
+            }
+        * it is not a good practise to make the method name same as classs name.
+    
+    . The modifiers applicable for constructors are { private, public, protected, default }.
+    . Any other modifie wil result in CE.
+        eg :- class Test {
+                static Test() {
+                    // results in CE.
+                }
+            }
+
+Types of constructor :-
+    1. Default constructor :
+        . If we don't write any constructor, then the compiler will generate a default constructor.
+        . If we write a constructor explicitly then compiler won't generate any default constructor.
+            ie. default constructor and programmer written constructor cannot exist simultaneously.
+        . Default cnstructor is a "Zero Parameterised Constructor"  or "No argument Constructor".
+        . The access modifier of the default constructor is the same as the class modifier
+            ( applicable for public and default ).
+        . it contains 1 line, " super() ", call to "Object class" constructor as every class has 
+            Object class as its parent by default.
+    
+    2. Parameterised constructor :
+        . these are user defined constructors.
+
+Constructor Overloading :-
+    . A class can contain more than one constructor and all these constructors have the 
+        same name they differ only in the type of argument, hence these constructors are considered 
+        as "Overloaded constructor".
+    eg :-
+        class Demo {
+            private int a;
+            private int b;
+
+            public Demo() {
+                // super() : call to Object class constructor is done by super() eventhough 
+                            // we explicitly do it or not.
+                System.out.println("Zero parametrized constructor by programmer");
+            }
+            public Demo(int a, int b) {
+                // super() : call to Object class constructor is done by super() eventhough 
+                            // we explicitly do it or not.
+                this.a=a;
+                this.b=b;
+            }
+            void disp() {
+                System.out.println(a);
+                System.out.println(b);
+            }
+        }
+        public class Launch2 {
+            public static void main(String[] args) {
+                Demo d=new Demo();
+                d.disp();                       // 0 0
+                Demo d2=new Demo(10, 20);
+                d2.disp();                      // 10 20
+            }
+        }
+
+Constructor Chaining :-
+    . Calling one constructor, of same class or the parent class, from another constructor is 
+        called as constructor chaining.
+    . we can chain as many constructors we want.
+    . " this() " and " super() " are used to achieve constructor chaining.
+    eg :-
+        class Student1 { //extends Object  : every class extends "Object" class by default.
+            private String name;
+            private int age;
+
+            public Student1() {
+                // super();
+                this("Rohit", 19);      // constructor chaining, calling same class constructor
+                System.out.println("Default Constructor is called");
+                name = "Rohan";
+                age = 18;
+            }
+            public Student1(String name) {
+                this();
+                System.out.println("1 parameter constructor called");
+                this.name = name;
+                age = 21;
+            }
+            public Student1(String name, int age) {
+                System.out.println("2 parameter constructor called");
+                this.name = name;
+                this.age = age;
+            }
+            public void disp() {
+                System.out.println(name);
+                System.out.println(age);
+            }
+        }
+        public class Launch3 {
+            public static void main(String[] args) {
+                Student1 st1 = new Student1();
+                st1.disp();
+                Student1 st2 = new Student1("Rahul");
+                st2.disp();
+            }
+        }
+
+        OUTPUT :
+        2 parameter constructor called
+        Default Constructor is called
+        Rohan
+        18
+        2 parameter constructor called
+        Default Constructor is called
+        1 parameter constructor called
+        Rahul
+        21
+
+super()     vs      this()  :-
+    . The first line inside the constructor can be super()/ this().
+    . If we are not writing anything then compiler will generate super().
+    . We should use only inside the constructor that to first line otherwise we
+        get compile time error.
+    super() :
+        . It should be the first line in the constructor;
+        . It should be used only in constructor;
+        . It will take control to the parent class constructor.
+    this()
+        . It should be the first line in the constructor.
+        . It should be used only in constructor.
+        . It will make the call of the current class constructor.
+    eg1
+        . We have to take super()/this() only in the first line of constructor, if we are writing
+            anywhere else it would result in a compile time error.
+        class Test {
+            Test() {
+                System.out.println(<Constructor<);      //CE
+                super();
+            }
+        }
+    eg2
+        . we can either use super()/this() but not both simultaneously
+        class Test {
+            Test() {
+                super();
+                this();                                 // CE
+            }
+        }
+    eg3
+        . we can use super()/this() only inside the constructor otherwise it would result in
+            compile time error.
+        class Test {
+            void methodOne() {                          // CE
+                super();
+                this();             
+            }
+        }
