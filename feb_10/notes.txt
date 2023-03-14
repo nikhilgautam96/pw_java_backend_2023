@@ -1,3 +1,7 @@
+NOTE :-
+    - The Object class is the parent class of all the classes in java by default. 
+      In other words, it is the topmost class of java.
+
 Constructor :-
     . Piece of code that is used for initialization of object.
     . Object creation is not enough, compulsorily we should perform initialization then only 
@@ -5,11 +9,14 @@ Constructor :-
     . Even if we don't write a constructor explicitly a default constructor gets invoked
         automatically during object creation  and it initializes the data members
         with JVM default values.
+    . Constructors are not inherited.
+    . Constructors are invoked at the time of object creation.
 
 Rules for writing a constructor :-
     . Name of constructor is same as name of the class.
-    . Constructor in java has no return type. but even if we provide one it won't result in 
-        compile time error, instead this block of code will then be treated as a "normal method".
+    . Constructor in java has no return type. not even void.
+        but even if we provide one it won't result in compile time error, 
+        instead this block of code will then be treated as a "normal method".
         eg:- class test {
                 void Test() {
                     System.out.println("Hello");    // It is not a constructor, it is a method.
@@ -18,10 +25,41 @@ Rules for writing a constructor :-
         * it is not a good practise to make the method name same as classs name.
     
     . The modifiers applicable for constructors are { private, public, protected, default }.
-    . Any other modifie wil result in CE.
+    . Any other modifier will result in CE.
         eg :- class Test {
                 static Test() {
                     // results in CE.
+                }
+            }
+    . modifiers not applicable are { abstract, final, native, static, or synchronized }
+    . if we have defined a parametrized constructor then no default constructor will be 
+        created and in that case if try to create object using default constructor it will give error
+        so we will have to define zero parametrized onstructor also explicitly.
+        eg :-
+            class Example {
+                private int a;
+                private int b;
+
+                public Example(int a, int b) {
+                    this.a = a;
+                    this.b = b;
+                }
+                void disp() {
+                    System.out.println(a);
+                    System.out.println(b);
+                }
+            }
+            public class Launch {
+                public static void main(String args[]) {
+                    Example obj1 = new Example();    // this gives CE as we have a 2-parametr constructor
+                                // and here are trying to invoke 0-parameter constructor
+                                // thinking compiler will ad the default constructor.
+                                // but it is not true.
+                                // we will have to explicitly define 0-parameter constructor also
+                                // tus it will become overloaded constructor.
+                    
+                    Example obj2 = new Example(10, 20);     // no error.
+                    obj2.disp();                            // 10 20
                 }
             }
 
@@ -163,5 +201,68 @@ super()     vs      this()  :-
             void methodOne() {                          // CE
                 super();
                 this();             
+            }
+        }
+
+Private Constructor :-
+    . We can declare a constructor as private. 
+    . If we declare a constructor as private we are not able to create an object of a class. 
+    . We can use this private constructor in the "Singleton Design Pattern".
+    . A private constructor does not allow a class to be subclassed. it will give CE if try to
+        extend a clas with private constructor.
+    . A private constructor does not allow to create an object outside the class.
+    . If all the methods are static then we can use a private constructor.
+
+    eg1 :-
+        class Demo {
+            private int a, b;
+            private Demo() {
+                this.a = 10;
+                this.b = 20;
+            }
+            public static Demo getObject() {
+                return new Demo();
+            }
+            public void disp() {
+                System.out.println("Values of a & b is : "+a+", "+b);
+            }
+        }
+        class Demo2 extends Demo {  
+            // This will give CE : Implicit super constructor Demo() is not visible. 
+                                    Must explicitly invoke another constructor.
+            Demo2() {
+                System.out.println("inside Demo2 constructor");
+            }
+            // even if we remove the "Demo2()" constructor it will give error as a Default
+            // constructor is created and it also tries to invoke the parent "Demo()" 
+            // class constructor.
+        }
+        public class privateConstructor {
+            public static void main(String[] args) {
+                // Demo ob = new Demo();        // This says constructor "Demo()" is not visible.
+                
+                // below we show how we can still create object of Demo Class,
+                // using a "public & static" method.
+                // the object is created in Demo class itself and its reference is returned here.
+                Demo obj = Demo.getObject();
+                obj.disp();
+            }
+        }
+    eg2 :-
+        class SingletonObject {
+            private SingletonObject() {
+                System.out.println("In a private constructor");
+            }
+            public static SingletonObject getObject() {
+                // we can call this constructor
+                if (ref == null)
+                    ref = new SingletonObject();
+                return ref;
+            }
+            private static SingletonObject ref;
+        }
+        public class PrivateConstructorDemo {
+            public static void main(String args[]) {
+                SingletonObject sObj = SingletonObject.getObject();
             }
         }
