@@ -1,9 +1,13 @@
 // package feb_10;
 class Demo {
-    private int a, b;
+    public int a, b;
     private Demo() {
         this.a = 10;
         this.b = 20;
+    }
+    public int Demo() {
+        System.out.println("Hey");
+        return 1;
     }
     public static Demo getObject() {
         return new Demo();
@@ -19,8 +23,15 @@ class Demo {
 // }
 public class privateConstructor {
     public static void main(String[] args) {
-        Demo ob = new Demo();
-        Demo obj = Demo.getObject();
-        obj.disp();
+        // Demo ob = new Demo();
+        Demo obj1 = Demo.getObject();
+        Demo obj2 = Demo.getObject();
+        obj1.disp();
+        obj2.disp();
+        obj1.a = 55;
+        obj2.b = 66;
+        obj1.disp();
+        obj2.disp();
+        obj1.Demo();
     }
 }

@@ -1,0 +1,40 @@
+1. What is a constructor ?
+    - Piece of code that is invoked at run time during and for object initialization.
+
+2. What is constructor chaining ?
+    - Calling 1 constructor from another using "this()" or "super()" keyword is called 
+        constructor chaining.
+
+3. Can we call a subclass constructor from a superclass constructor ?
+    - No calling a subclass constructor from a superclass constructor is not allowed in java.
+
+4. What happens if you keep an return type for an constructor ?
+    - Keeping a return type to a constructor makes it act as a normal method. it wont give any error
+     but keeping method name same as class name is not recommended.
+
+5. What is a no-argument constructor ?
+    - Default constructors asre sometimes called as no-argument constructors, also we as user 
+    can define no-argument constructors if we want to do more operation during object initialization.
+    A no-argument constructor has zero parameter.
+    eg :- class Demo {
+             public Demo() {
+                 System.out.println("No-argument constructor");
+             }
+          }
+
+6. How is no-argument constructor different from a default constructor ?
+    - No-argument constructors are user defined but default constructor is created by the jvm
+      itself. both have zero parameters. sometimes no-argument constructor is also called as
+      default constructor.
+
+7. When do we need constructor chaining ?
+    - Constructor chaining in java is used when we want to pass parameters through multiple or
+      different constructors using a single object.
+      One of the main use of constructor chaining is to avoid duplicate codes while having 
+      multiple constructor (by means of constructor overloading) and make code more readable.
+      we don't need to write same code in every constructor we can use the other constructor's
+      code by using constructor chaining.
+
+8. what is default constructor, Explain with an example ?
+    - Default constructors are added implicitly by the jvm. it has zero arguments.
+    it is called during object initialization.

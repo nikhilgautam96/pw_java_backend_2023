@@ -11,6 +11,7 @@ Constructor :-
         with JVM default values.
     . Constructors are not inherited.
     . Constructors are invoked at the time of object creation.
+    . the return value of a constructor is "instance".
 
 Rules for writing a constructor :-
     . Name of constructor is same as name of the class.
@@ -116,6 +117,9 @@ Constructor Chaining :-
         called as constructor chaining.
     . we can chain as many constructors we want.
     . " this() " and " super() " are used to achieve constructor chaining.
+    . Chaining constructors makes code more readable.
+    . One of the main use of constructor chaining is to avoid duplicate codes while having 
+      multiple constructor (by means of constructor overloading) and make code more readable.
     eg :-
         class Student1 { //extends Object  : every class extends "Object" class by default.
             private String name;
@@ -208,10 +212,14 @@ Private Constructor :-
     . We can declare a constructor as private. 
     . If we declare a constructor as private we are not able to create an object of a class. 
     . We can use this private constructor in the "Singleton Design Pattern".
+      We declare a Singleton class constructor as private to prevent others from instantiating it.
+    
     . A private constructor does not allow a class to be subclassed. it will give CE if try to
-        extend a clas with private constructor.
+      extend a clas with private constructor.
+    
     . A private constructor does not allow to create an object outside the class.
     . If all the methods are static then we can use a private constructor.
+    . Private constructor ensures only one instance of a class exist at any point of time??
 
     eg1 :-
         class Demo {
@@ -266,3 +274,295 @@ Private Constructor :-
                 SingletonObject sObj = SingletonObject.getObject();
             }
         }
+    eg3 :-
+        import java.io.*;
+        class newTestClass {
+
+            static newTestClass object = null;      // this restricts the number of object to 1.
+            public int a = 20;
+
+            private newTestClass() {
+
+            }
+            //we have created a private constructor
+            static public newTestClass displayInstance() {
+                /**
+                    *displayInstance() is a public method that we will use to create instance.
+                    *Call this method to access these instances from outside the class.
+                */
+            if (object == null) {
+                // we check here if already an objectis there, return its reference otherwise
+                // create new object and return its reference.
+
+                object = new newTestClass();
+                //singleton class object is created
+                return object;
+            }
+        }
+        public class SingletonClass {
+            public static void main(String args[]) {
+                newTestClass instance1 = newTestClass.displayInstance();
+                //displaying the instance of the singleton class by calling the public method
+
+                newTestClass instance2 = newTestClass.displayInstance();
+                //displaying the instance of the singleton class by calling the public method
+
+                instance1.a = instance1.a + 26;
+                System.out.println(“Instance 1 created has the following value = ” + instance1.a);
+                System.out.println(“Instance 2 created has the following value = ” + instance2.a);
+            }
+        }
+        OUTPUT :
+            Instance 1 created has the following value = 46
+            Instance 2 created has the following value = 46
+
+
+Declaring Constructor as Default :- 
+    . (means with access modifier as default)
+    . If we declare constructor without any access modifier, it is a default access modifier.
+    
+    . When we declare a constructor with a default access modifier, we will not be able to 
+      instantiate that class using that constructor outside of its current package.
+    
+    . Also, we will not be able to extend the class outside of its current package.
+    eg1 :-
+        package com.techstackjournal.shape;
+        public class Circle {
+            Circle() {
+                System.out.println("Cicle no-arg constructor...");
+            }
+        }
+        package com.techstackjournal;
+        import com.techstackjournal.shape.Circle;
+        public class Main {
+            public static void main(String[] args) {
+                Circle circle = new Circle();
+            }
+        }
+    . In the above example, Circle class is within “com.techstackjournal.shape” package. 
+      However, we are trying to use it in "Main" class which is within “com.techstackjournal” package. 
+      Since, the Circle’s constructor is declared as default, we’ll not be able to instantiate 
+      the class outside of its package using that constructor.
+
+    eg2 :-
+        package com.techstackjournal;
+        import com.techstackjournal.shape.Circle;
+        public class FillCircle extends Circle {
+
+        }
+    . Above code also gives you an error, because "FillCircle" is extending "Circle" without 
+      providing any constructor. In this case, FillCircle wants to leverage(use (something) to maximum advantage.)
+      Circle’s constructor. Since, Circle’s constructor has default access modifier, 
+      FillCircle cannot access that constructor from a different package.
+
+    . Here, FillCircle has to explicitly declare a constructor which is not having default 
+      access modifier in super class. Since, the example above doesn’t have another constructor 
+      without default access, it is not at all possible to extend Circle class in FillCircle.
+
+    . For example, if Circle class has another overloaded constructor with public access modifier, 
+      FillCircle could use that constructor to avoid this problem.
+
+Declaring Constructor as Protected :-
+    . By declaring a constructor as protected, you can call that constructor in subclass when you 
+      instantiate the subclass, even when the subclass is located in a different package than 
+      the super class.
+    eg1 :-
+        package com.techstackjournal.shape;
+        public class Circle {
+            protected Circle() {
+                System.out.println("Cicle no-arg constructor...");
+            }
+
+        }
+        package com.techstackjournal;
+        import com.techstackjournal.shape.Circle;
+        public class FillCircle extends Circle {
+
+        }
+
+    . In the above example, FillCircle can call the constructor of Circle implicitly when 
+      it is being instantiated. 
+    . This code doesn’t give any compilation error, unlike the default access modifier example.
+
+Declaring Constructor as Public :-
+    . Declaring a constructor as public makes it eligible for instantiation.
+    . anybody can instantiate the class using new keyword followed by the constructor signature.
+    eg1 :-
+        package com.techstackjournal.shape;
+            public class Circle {
+            public Circle() {
+                System.out.println("Circle no-arg constructor...");
+            }
+            public static void main(String[] args) {
+                Circle circle = new Cicle();
+            }
+        }
+
+NOTE : There are three places in java where you can perform operations:
+            1. method
+            2. constructor
+            3. block
+
+
+Instance Initializer Block :-
+    . Instance Initializer block is used to initialize the instance data member. 
+    . It run each time when object of the class is created.
+    . The initialization of the instance variable can be done directly but there can be 
+      performed extra operations while initializing the instance variable in the instance 
+      initializer block.
+    
+    * What is invoked first, instance initializer block or constructor?
+      eg1 :  class Bike8 {  
+                int speed;  
+                Bike8() {
+                    System.out.println("constructor is invoked");
+                }  
+            
+                {
+                    System.out.println("instance initializer block invoked");
+                }  
+                
+                public static void main(String args[]) {  
+                    Bike8 b1=new Bike8();  
+                    Bike8 b2=new Bike8();  
+                }     
+            }
+        Output:
+            instance initializer block invoked
+            constructor is invoked
+            instance initializer block invoked
+            constructor is invoked
+        
+    . In the above example, it seems that instance initializer block is firstly invoked but NO. 
+    . Instance intializer block is invoked at the time of object creation. 
+    . The java compiler copies the instance initializer block in the constructor after the 
+        first statement super(). 
+    . So firstly, constructor is invoked.
+
+    Rules for instance initializer block :
+        1. The instance initializer block is created when instance of the class is created.
+        2. The instance initializer block is invoked after the parent class constructor is invoked 
+            (i.e. after super() constructor call).
+        3. The instance initializer block comes in the order in which they appear.
+            
+    eg1 : class A{  
+            A() {  
+                System.out.println("parent class constructor invoked");  
+            }  
+        }  
+        class B2 extends A {  
+            B2() {  
+                super();  
+                System.out.println("child class constructor invoked");  
+            }
+            {
+                System.out.println("instance initializer block is invoked");
+            }  
+            public static void main(String args[]) {  
+                B2 b = new B2();
+            }
+        }
+        Output:
+            parent class constructor invoked
+            instance initializer block is invoked
+            child class constructor invoked
+    
+    eg2 : class A{
+            A(){
+            System.out.println("parent class constructor invoked");
+            }
+        }
+        class B3 extends A{
+            B3(){
+                super();
+                System.out.println("child class constructor invoked");
+            }
+
+            B3(int a){
+                super();
+                System.out.println("child class constructor invoked "+a);
+            }
+
+            {
+                System.out.println("instance initializer block 1 is invoked");
+            }
+            {
+                System.out.println("instance initializer block 2 is invoked");
+            }
+
+            public static void main(String args[]){
+                B3 b1=new B3();
+                B3 b2=new B3(10);
+            }
+        }
+        OUTPUT :
+            parent class constructor invoked
+            instance initializer block 1 is invoked
+            instance initializer block 2 is invoked
+            child class constructor invoked
+            parent class constructor invoked
+            instance initializer block 1 is invoked
+            instance initializer block 2 is invoked
+            child class constructor invoked 10
+
+
+Static Block, Instance Block and Constructor : Order of Execution
+    . Java executes all the static blocks first, then it will execute all the instance blocks and 
+      finally it will execute the constructor of the class.
+    . eg1 :
+        package com.techstackjournal;
+        public class BlocksDemo {
+            static {
+                System.out.println("static block");
+            }
+             // instance block
+            {
+                System.out.println("instance block");
+            }
+            
+            public BlocksDemo() {
+                System.out.println("constructor");
+            }
+
+            public static void main(String[] args) {
+                BlocksDemo bd = new BlocksDemo();    
+            }
+        }
+        OUTPUT
+            static block
+            instance block
+            constructor
+        
+    . eg2 :
+        package com.techstackjournal;
+        public class BlocksDemo {
+            static {
+                System.out.println("static block 1");
+            }
+
+            static {
+                System.out.println("static block 2");
+            }
+            
+            {
+                System.out.println("instance block 1");
+            }
+
+            {
+                System.out.println("instance block 2");
+            }
+            
+            public BlocksDemo() {
+                System.out.println("constructor");
+            }
+            public static void main(String[] args) {
+                BlocksDemo bd = new BlocksDemo();
+                
+            }
+        }
+        OUTPUT
+            static block 1
+            static block 2
+            instance block 1
+            instance block 2
+            constructor
