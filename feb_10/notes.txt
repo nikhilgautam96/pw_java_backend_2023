@@ -1,6 +1,9 @@
 NOTE :-
     - The Object class is the parent class of all the classes in java by default. 
       In other words, it is the topmost class of java.
+    - But, if there is a subclass that inherits another class then it does not extends
+      "Object" class but instead it gets the Object class features from the parent
+      as the parent definitely has extended Object by default (if the parent is not a subclass).
 
 Constructor :-
     . Piece of code that is used for initialization of object.
