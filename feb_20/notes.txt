@@ -1,4 +1,6 @@
 Inheritance :-
+    . It describes an "is-a relationship" between classes.
+        ie. "B is a child of A" or "A is a parent of B"
     . It is one of the pillars of Object oriented programming.
     . It promotes reusability.
     . productivity of the code is improved.
@@ -113,7 +115,7 @@ Types of Methods in Inheritance :-
     1. Inherited.
         - The method which would come from parent to child due to inheritance is called
           inherited method.
-        - 
+
     2. Overriden.
         - The method that is taken from Parent and changes the implemetation as per the needs of 
           the requirement in the child class is called "Overriden Method".

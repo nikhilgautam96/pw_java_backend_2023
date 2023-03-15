@@ -1,7 +1,4 @@
 package feb_20;
-
-import jan_29.Notes.Complex_Pattern.pattern_1;
-
 class Parent1 {
 
 }

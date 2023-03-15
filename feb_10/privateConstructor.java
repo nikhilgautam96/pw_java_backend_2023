@@ -1,4 +1,4 @@
-// package feb_10;
+package feb_10;
 class Demo {
     public int a, b;
     private Demo() {
