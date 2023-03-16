@@ -7,7 +7,7 @@ class Human1 {
         System.out.println("Human class Constructor");
     }
 
-    void sleep() {
+    private void sleep() {
         age = 18;
         System.out.println("Human needs good sleep");
         System.out.println(age);
@@ -21,6 +21,11 @@ class Student1 extends Human1 {
     void disp() {
         System.out.println(" The age is : " + age);
         // System.out.println(" The Name is : " + name);
+    }
+    public void sleep() {  // we are increasing the visibility of overriden method.
+        age = 18;
+        System.out.println("Student needs good sleep");
+        System.out.println(age);
     }
 }
 public class SingleLevelInheritance {

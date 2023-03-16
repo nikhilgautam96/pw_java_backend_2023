@@ -5,10 +5,10 @@ class Demo {
         this.a = 10;
         this.b = 20;
     }
-    public int Demo() {
-        System.out.println("Hey");
-        return 1;
-    }
+    // public int Demo() {
+    //     System.out.println("Hey");
+    //     return 1;
+    // }
     public static Demo getObject() {
         return new Demo();
     }
@@ -32,6 +32,6 @@ public class privateConstructor {
         obj2.b = 66;
         obj1.disp();
         obj2.disp();
-        obj1.Demo();
+        // obj1.Demo();
     }
 }
