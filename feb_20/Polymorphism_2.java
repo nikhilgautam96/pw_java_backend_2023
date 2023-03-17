@@ -59,7 +59,7 @@ public class Polymorphism_2 {
         a.poly(fp);
         a.poly(ap);
 
-        // cp.takeOff();
+        // cp.takeOff();                     
         // cp.fly();
 
         // pp.takeOff();
@@ -67,9 +67,5 @@ public class Polymorphism_2 {
 
         // fp.takeOff();
         // fp.fly();
-
-        
-
-
     }
 }

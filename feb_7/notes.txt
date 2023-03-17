@@ -1,6 +1,6 @@
 Question :
-        In which part of its subsystem does JVM invokes the main() method?? I know that much that 
-        it happens after the classloader subsystem has finished creating and loading the class file.
+    In which part of its subsystem does JVM invokes the main() method?? I know that much that 
+    it happens after the classloader subsystem has finished creating and loading the class file.
 
 static Objects :
     . There is no such concept of static object in java.
@@ -204,14 +204,14 @@ Static Inner Classes :-
             1. Nested class - Nested class can be static or non-static. The non-static nested class
                              is known as an inner class.
                     1. Inner class :- 
-                            . Inner classes are the classes that are "non-static and nested" . 
-                                They are written inside an outer class. 
-                            . We are unable to create an instance of the inner class without creating an 
-                                instance of its given outer class. 
-                            . This is needed when the user has to create a class but doesn't want 
-                                other classes to access it. Here we can use an inner class for that reason.
-                            . Inner class can access the static as well as the non-static members of 
-                                the outer class.
+                        . Inner classes are the classes that are "non-static and nested" . 
+                            They are written inside an outer class. 
+                        . We are unable to create an instance of the inner class without creating an 
+                            instance of its given outer class. 
+                        . This is needed when the user has to create a class but doesn't want 
+                            other classes to access it. Here we can use an inner class for that reason.
+                        . Inner class can access the static as well as the non-static members of 
+                            the outer class.
             
             2. Outer class - Outer classes are the classes in which nested or inner classes are defined.
     
