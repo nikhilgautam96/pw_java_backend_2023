@@ -1,5 +1,5 @@
 Note :- 
-    One principle of OOPS should not violate the rules of the other principle.
+    One Principle of OOPS should not violate the rules of the other Principles.
 
 Polymorphism :-
     . If one thing exists in more than one form it is called polymorphism .
@@ -28,3 +28,77 @@ Method Overriding :-
     . It only works with "Inheritance".
     . If we are able to create parent type reference for child type object, then we an say 
       we have achieved polymorphism.
+
+Rules for Overriding :-
+    1. To override the superclass method with subclass method, we must not declare the 
+       superclass method as private.
+       bcz it will show 'CE' if we try to access the Child class overridden method using the
+       parent class reference (ie. when we do " up-casting ").
+       eg :- 
+        class AeroPlane1 {
+            private void takeOff() {
+                System.out.println("AeroPlane is taking off");
+            }
+            public void fly() {
+                System.out.println("AeroPlane is Flying");
+            }
+        }
+        class CargoPlane1 extends AeroPlane1 {
+            public void takeOff() {
+                System.out.println("CargoPlane requires longer runway");
+            }
+            public void fly() {
+                    System.out.println("Cargoplane flies at lower height");
+            }  
+        }
+        class PassengerPlane1 extends AeroPlane1 {
+            public void takeOff() {
+                System.out.println("PassengerPlane requires medium size runway");
+            }
+            public void fly() {
+                System.out.println("PassengerPlane flies at medium height");
+            }
+        }
+        public class Polymorphism_1 {
+            public static void main(String[] args) {
+                CargoPlane1 cp = new CargoPlane1();
+                PassengerPlane1 pp = new PassengerPlane1();
+                cp.takeOff();           // This will work.
+
+                AeroPlane1 ref;
+                ref = cp;               // Up-Casting
+                // ref.takeOff();       // This will show error -> " The method takeOff() from 
+                                        //                  the type AeroPlane1 is not visible "
+                
+                ref.fly();
+
+                System.out.println("------------------------------------------------");
+                
+                ref=pp;
+                // ref.takeOff();      // here also the same error.
+                ref.fly();
+            }
+        }
+
+    2. The overriding subclass method should have the same return type as the 
+       overriden superclass method.
+    3. while overriding, we can increase the visibility of the overriden method
+       but we cannot decrease the visibility, in the child class.
+
+    Access         within          Outside class        Outside package      Outside package
+   Modifier      same class         same package           subclass            non-subclass
+
+1. public           yes                 yes                 yes                     yes
+2. protected        yes                 yes                 yes                     No
+3. default          yes                 yes                  No                     No
+4. private          yes                  No                  No                     No
+
+                        Visibility Decreases
+                ------------------------------------>>
+                public   protected   default   private 
+                <<------------------------------------
+                        Visibility Increases       
+
+    4. while overriding, we cannot change the type or number of argument in method 
+       prototype. it won't give error in doing so but it is not considered overriding
+       but overloading.
