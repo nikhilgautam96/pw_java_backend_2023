@@ -1,2 +1,91 @@
-Abstract Classes   &   Abstract Keyword :-
-    - 
+Abstraction :-
+    . The process of displaying/exposing only the essential details by hiding the 
+      irrelevant details.
+
+Abstract Keyword :-
+    . In Java applications, if we want to declare a method without body then we must 
+      declare that method as "Abstract Method".
+    . If we want to declare abstract methods then the respective class must be an 
+      abstract class.
+    eg :-
+      abstract class Demo1 {
+          public abstract void getDriver();
+      }
+      class Demo2 extends Demo1 {
+          public void getDriver() {
+              System.out.println(" Implementing Driver method in subclass. ");
+          }
+      }
+      public class Abstraction_1 {
+          public static void main(String args[]) {
+              Demo1 obj = new Demo2();
+              obj.getDriver();
+          }
+      }
+
+    . In java, if we have declared an "abstract class" with "abstract methods" then,
+        it is convention to implement all the abstract methods by taking subclasses.
+        not doing so, gives CE.
+    . To access the abstract class members, we have to create an object for the 
+        subclass and we have to create a reference variable either for abstract class 
+        or for the subclass.
+    eg :-
+        abstract class Demo1 {
+            public abstract void getDriver();    
+            // all keywords before the return type are interchangeble.
+            // ie - we can write "abstract public ..." & "static public ..." , etc.
+
+            // public abstract void showDriver();  
+                    // we have to implement this method too in the subclass.
+                    // not doing so, gives CE.
+        }
+        class Demo2 extends Demo1 {
+            public void getDriver() {
+                System.out.println(" Implementing Driver method in subclass. ");
+            }
+        }
+        public class Abstraction_1 {
+            public static void main(String args[]) {
+                Demo1 obj = new Demo2();        // using abstract parent class reference.
+                obj.getDriver();
+
+                Demo2 obj2 = new Demo2();       // using child class reference.
+                obj2.getDriver();
+            }
+        }
+    . In above example we can see that, Object is always created for the subclass.
+    . we cannot instantiate the abstract class.
+        ie. Object of abstract class cannot be created, we can only use its reference.
+    . using abstract class reference we cannot acess subclass's "Specialized methods".
+    eg :-
+        abstract class Demo1 {
+            public abstract void getDriver();    
+            // all keywords before the return type are interchangeble.
+            // ie - we can write "abstract public ..." & "static public ..." , etc.
+
+            // public abstract void showDriver();  
+                    // we have to implement this method too in the subclass.
+                    // not doing so, gives CE.
+        }
+        class Demo2 extends Demo1 {
+            public void getDriver() {
+                System.out.println(" Implementing Driver method in subclass. ");
+            }
+            public void specialized() {
+                System.out.println("Can't be accessed using parent's reference.");
+            }
+        }
+        public class Abstraction_1 {
+            public static void main(String args[]) {
+                Demo1 obj = new Demo2();        // using abstract parent class reference.
+                obj.getDriver();
+
+                // obj.specialized();           // this is not possible. specialized method cannot 
+                                                // be accessed using parent's reference.
+
+                Demo2 obj2 = new Demo2();       // using child class reference.
+                obj2.getDriver();
+                obj2.specialized();             // using child reference it can be done.
+            }
+        }
+    

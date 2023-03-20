@@ -102,3 +102,4 @@ Rules for Overriding :-
     4. while overriding, we cannot change the type or number of argument in method 
        prototype. it won't give error in doing so but it is not considered overriding
        but overloading.
+    5. 
