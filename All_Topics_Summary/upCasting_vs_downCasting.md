@@ -68,9 +68,9 @@ dog.makeSound(); // Output: Dog is barking.
 dog.fetch(); // Output: Dog is fetching.
 
 Animal obj = new Dog();
-obj.fetch();                // gives an error --> 
-                            // "   The method fetch() is undefined for the type 'Dog'  "
+// obj.fetch();                // gives an error --> 
+                               // "   The method fetch() is undefined for the type 'Dog'  "
 ((Dog) obj).fetch();        // does not give any error and we are able to access 
-                            // specialized method of child class.
+                            // specialized method " fetch() " of child class.
 
 ```
