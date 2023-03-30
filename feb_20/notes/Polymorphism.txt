@@ -1,5 +1,7 @@
 Note :- 
     One Principle of OOPS should not violate the rules of the other Principles.
+    eg :- if we try to access private members of parent in child, it gives error.
+        bcz inheritance cannot violate the rules of polymorphism.
 
 Polymorphism :-
     . If one thing exists in more than one form it is called polymorphism .

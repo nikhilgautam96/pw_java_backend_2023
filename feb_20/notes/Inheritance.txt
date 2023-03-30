@@ -4,15 +4,21 @@ Inheritance :-
     . It is one of the pillars of Object oriented programming.
     . It promotes reusability.
     . productivity of the code is improved.
-    . In java inheritance is achieved usig the "extends" keyword (to inherit classes) and
+    . In java inheritance is achieved using the "extends" keyword (to inherit classes) and
       using "implements" keyword (to inherit interfaces).
     . Whatever is there in the Parent class by default would be available to the 
       child class.
     . but the child class properties and behaviours are not available to the parent class.
     . Using the child reference we call both the parent and child class methods.
-    . whereas using the parent reference we can call only Parent class methods.
+    . whereas using the parent reference we can call only Parent class methods and
+        not the specialized methods of child class.
     . the class that is being inherited is called - { Super class, Base class, Parent class }
     . the class that inherits is called - { Child class, sub class, derived class }
+    . Note :- 
+        One Principle of OOPS should not violate the rules of the other Principles.
+        eg :- if we try to access private members of parent in child, it gives error.
+            bcz inheritance cannot violate the rules of polymorphism.
+    . Constructors are not inherited.
 
     eg :-
         class Parent{
@@ -129,6 +135,9 @@ Types of Methods in Inheritance :-
 
 Package :-
     . A java package is a group of similar types of classes, interfaces and sub-packages.
+    . usual practise to name packages in development is :-
+        " domainName.companyName.projectName.featureName "
+        eg :- " com.pw.calculator.Addition "
     . Categorised into 2 types :-
         1. Built-in package
             eg : { java, lang, awt, javax, swing, net, io, util, sql, etc }
@@ -141,7 +150,7 @@ Package :-
         3. Java package removes naming collision.
     eg :-
         package mypack;  
-        public class Simple{  
+        public class Simple {  
             public static void main(String args[]){  
                 System.out.println("Welcome to package");  
             }  
@@ -155,6 +164,7 @@ Package :-
                 You can use any directory name like " /home " (in case of Linux), 
                 " d:/abc " (in case of windows) etc. 
             - If you want to keep the package within the same directory, you can use " . " (dot).
+                to keep it in parent directory use " .. " .
             - using "." creates a folder with specified package name in the same directory,
                 with all the ".class" files.
 

@@ -1,4 +1,6 @@
-Git Commands :  NOTE - git commands are case sensitive.
+Git Commands :  
+    * NOTE - git commands are case sensitive.
+
     1. git version/ git --version
     2. git help
     3. git config : a convenience function that is used to set Git configuration values 
@@ -25,7 +27,10 @@ Git Commands :  NOTE - git commands are case sensitive.
 
             . git config --global user.name/user.email : sets the userName or email
     
-    4. git init
+    4. git init : 
+            . It initializes our git repository.
+            . Git repository : it is a folder, it's version is managed by git.
+
     5. git status : it tells the status of "Tracked" & "Untracked" files.
             ie. the files that are there in the working-area = "Untracked"
                 the files in the staging-area = "Tracked"
