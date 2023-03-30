@@ -4,7 +4,7 @@ Abstraction :-
 
 Abstract Keyword :-
     . In Java applications, if we want to declare a method without body then we must 
-      declare that method as "Abstract Method".
+      declare that method as "Abstract Method" using the "abstract" keyword.
     . If we want to declare abstract methods then the respective class must be an 
       abstract class.
     eg :-
@@ -32,8 +32,8 @@ Abstract Keyword :-
     eg :-
         abstract class Demo1 {
             public abstract void getDriver();    
-            // all keywords before the return type are interchangeble.
-            // ie - we can write "abstract public ..." & "static public ..." , etc.
+                // all keywords before the return type are interchangeble.
+                // ie - we can write "abstract public ..." & "static public ..." , etc.
 
             // public abstract void showDriver();  
                     // we have to implement this method too in the subclass.
@@ -56,7 +56,7 @@ Abstract Keyword :-
     . In above example we can see that, Object is always created for the subclass.
     . we cannot instantiate the abstract class.
         ie. Object of abstract class cannot be created, we can only use its reference.
-    . using abstract class reference we cannot acess subclass's "Specialized methods".
+    . using abstract class reference we cannot access subclass's "Specialized methods".
     eg :-
         abstract class Demo1 {
             public abstract void getDriver();    
@@ -88,4 +88,6 @@ Abstract Keyword :-
                 obj2.specialized();             // using child reference it can be done.
             }
         }
+        
+    . Using the abstract class reference we cannot access the specialized methods of child class.
     

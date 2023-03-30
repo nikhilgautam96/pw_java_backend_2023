@@ -593,7 +593,7 @@ Constructor Execution in case of inheritance :-
                 System.out.println("Child class Constructor");
             }
             public Demo2(int x, int y) {
-                //super();
+                // super();                 ------>> by default
                 System.out.println("parameterized child class Constructor");
                 m=x;
                 n=y;
@@ -601,12 +601,15 @@ Constructor Execution in case of inheritance :-
         }
         public class ConstructorExe {
             public static void main(String[] args) {
-                Demo2 d=new Demo2();
+                Demo2 d = new Demo2();
+                    OUTPUT : 
+                    Parent class Constructor
+                    parameterized child class Constructor
+                    Child class Constructor
 
-                //Demo2 d2=new Demo2(10,20);
+                Demo2 d2 = new Demo2(10, 20);
+                    OUTPUT : 
+                    Parent class Constructor
+                    parameterized child class Constructor
             }
         }
-        OUTPUT : 
-        Parent class Constructor
-        parameterized child class Constructor
-        Child class Constructor

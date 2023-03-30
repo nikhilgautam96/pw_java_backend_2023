@@ -1,5 +1,11 @@
 package feb_20;
 class AeroPlane2 {
+    // declaring below method as private restricts its access to the class and so
+    //  it cannot be overriden in subclass as we will get visibility error.
+    // private void takeOff() {
+    //     System.out.println("AeroPlane is taking off");
+    // }
+
     public void takeOff() {
         System.out.println("AeroPlane is taking off");
     }

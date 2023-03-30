@@ -22,6 +22,9 @@ public class Abstraction_1 {
         obj.getDriver();
         // obj.specialized();        // this is not possible. specialized method cannot be accessed
                                      // using parent's reference.
+        // we need to perform downcasting to access the child class's specialized methods.
+        ((Demo2) obj).specialized();    // "Downcasting"
+
         Demo2 obj2 = new Demo2();
         obj2.getDriver();
         obj2.specialized();             // using child reference it can be done.

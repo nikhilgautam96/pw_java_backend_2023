@@ -8,7 +8,7 @@ Polymorphism :-
     . Greek word, "poly" = "many"  &  "morphism" = "structure of forms" .
     . Main purpose of using polymorphism is to reduce the number of lines of code .
     eg :-
-        A person is student in school, son/daughter in front of parent, 
+        A person is student in school, son/daughter in front of parents, 
         brother/sister with siblings, grand-son/daughter infront of grandparents, etc.
     
     . Two types of polymorphism.
@@ -28,17 +28,25 @@ Method Overriding :-
       called method overriding.
     . The same method prototype must be provided to the methods.
     . It only works with "Inheritance".
-    . If we are able to create parent type reference for child type object, then we an say 
+    . If we are able to create parent type reference for child type object, then we can say 
       we have achieved polymorphism.
 
 Rules for Overriding :-
     1. To override the superclass method with subclass method, we must not declare the 
-       superclass method as private.
-       bcz it will show 'CE' if we try to access the Child class overridden method using the
+       superclass method as "private".
+       bcz 
+       it will show 'CE' if we try to access the Child class overridden method using the
        parent class reference (ie. when we do " up-casting ").
+
+    * if we do declare "private method()" in superclass, and same method in child clas also
+      we think we are overriding but actually we are declaring seperate methods 
+      in seperate classes whose scope is limited to their enclosing classes only.
        eg :- 
         class AeroPlane1 {
-            private void takeOff() {
+            private void takeOff() { // this is not an overridden method but a specialized method
+                                     // with scope as private.
+                        // even if we declare this method as " final " we wont get error,
+                        // as it is never getting overridden.
                 System.out.println("AeroPlane is taking off");
             }
             public void fly() {
@@ -46,7 +54,8 @@ Rules for Overriding :-
             }
         }
         class CargoPlane1 extends AeroPlane1 {
-            public void takeOff() {
+            public void takeOff() {     // this is not an overriding method but a specialized method
+                                        // with scope as public.
                 System.out.println("CargoPlane requires longer runway");
             }
             public void fly() {
@@ -104,4 +113,187 @@ Rules for Overriding :-
     4. while overriding, we cannot change the type or number of argument in method 
        prototype. it won't give error in doing so but it is not considered overriding
        but overloading.
-    5. 
+
+    5. "final" methods are never overriden in inheritance.
+    eg :-
+    class AeroPlane1 {
+        final private void takeOff() {
+            // This method is never overridden and so declaring it as "final" is not giving any error.
+            System.out.println("AeroPlane is taking off");
+        }
+        // final public void takeOff() {
+        //     // This method is getting overridden as it gets inherited in subclass so 
+        //     //   declaring it as "final" will throw error as,
+        //     // "final" methods are never overriden by rule.
+        
+        //     System.out.println("AeroPlane is taking off");
+        // }
+        public void fly() {
+            System.out.println("AeroPlane is Flying");
+        }
+    }
+    class CargoPlane1 extends AeroPlane1 {
+        public void takeOff() {
+            System.out.println("CargoPlane requires longer runway");
+        }
+        final public void fly() {
+                System.out.println("Cargoplane flies at lower height");
+        }
+        public void test() {
+            System.out.println("test");
+        }
+    }
+    class PassengerPlane1 extends AeroPlane1 {
+        public void takeOff() {
+            System.out.println("PassengerPlane requires medium size runway");
+        }
+        public void fly() {
+            System.out.println("PassengerPlane flies at medium height");
+        }
+    }
+    public class Polymorphism_3 {
+        public static void main(String[] args) {
+            CargoPlane1 cp=new CargoPlane1();
+            PassengerPlane1 pp=new PassengerPlane1();
+            AeroPlane1 ref;
+            cp.takeOff();
+            ref=cp;
+            // ref.takeOff();
+            ref.fly();
+
+            System.out.println("------------------------------------------------");
+            // ref=pp;
+
+            // ref.takeOff();      // we have achieved polymorphism, but we need to reduce the 
+            // ref.fly();          // num of lines of code. that we are doing in "Polymorphism_2.java"
+        // pp=cp;
+        }
+    }
+
+    6. static methods cannot be overridden.
+        - since method overriding relies on dynamic binding at runtime, but static methods 
+            are bonded at compile time with static binding. 
+            As a result, we are unable to override static methods.
+        - If static methods are redefined by a derived class, then it is not Method Overriding 
+            but "Method Hiding".
+            eg :- 
+                // Parent class
+                class Base {
+
+                    // Non-static method which will be overridden in derived class
+                    public int add(int a, int b) {
+                        System.out.println("In the base class add() .");
+                        return a + b;
+                    }
+
+                    // static method which will not be overridden
+                    //in the derived class
+                    public static void print() {
+                        System.out.println("In the Base class print() .");
+                    }
+                }
+
+                // Child class
+                class Derived extends Base {
+
+                    // This method overrides add() of Base class
+                    // because it not a static method
+                    public int add(int a, int b) {
+                        System.out.println("In the child class add() .");
+                        return a + b;
+                    }
+
+                    // This method is hidden by print() in Base
+                    public static void print() {
+                        System.out.println("In the child class print() .");
+                    }
+                }
+
+                // Driver class
+                public class Driver {
+                    public static void main(String args[]) {
+                        Base obj = new Derived();
+
+                            // Here Derive's add() is called
+                            //according to overriding rules
+                        System.out.println(obj.add(4, 5));
+
+                            //This should invoke the print method of class Derive,
+                            //as per overriding rules.
+                            //Because a static method can't be overridden,
+                            //it uses Base's print instead
+                        obj.print();
+                    }
+                }
+                OUTPUT :
+                    In the child class add().
+                    9
+                    In the Base class print().
+            
+        * Important Conclusion :
+            . For static methods - the method is called based on the "type of reference", not 
+                        the object being referred to, implying that the method call is determined 
+                        at compile time.
+            . For non-static methods - the method is called based on the "type of object" being 
+                        referenced, rather than the type of reference, implying that method 
+                        calls are made at runtime.
+            . A static method cannot hide an instance method, and an instance method cannot 
+                override it. The following program illustrates this.
+                eg :-
+                    // Parent class
+                    class Base {
+
+                        // non-static method
+                        public int add(int a, int b) {
+                            System.out.println("In the base class add() .");
+                            return a + b;
+                        }
+
+                        // static method
+                        public static void print() {
+                            System.out.println("In the Base class print() .");
+                        }
+                    }
+
+                    // Child class
+                    class Derived extends Base {
+
+                        // addition of static causes compilation error
+                        public static int add(int a, int b) {
+                            System.out.println("In the child class add() .");
+                            return a + b;
+                        }
+
+                        // removal of static causes compilation error
+                        public void print() {
+                            System.out.println("In the child class print() .");
+                        }
+                    }
+
+                    // Driver class
+                    public class Driver {
+                        public static void main(String args[]) {
+                            Base obj = new Derived();
+
+                                // Here Derive's add() is called
+                                // according to overriding rules
+                            System.out.println(obj.add(4, 5));
+
+                                // This should invoke the print method of class Derive,
+                                // as per overriding rules.
+                                // Because a static method can't be overridden,
+                                // it uses Base's print instead
+                            obj.print();
+                        }
+                    }
+        OUTPUT :
+            Main.java:20: error: add(int,int) in Derived cannot override add(int,int) in Base
+            public static int add(int a, int b) {
+                                ^
+            overriding method is static
+            Main.java:26: error: print() in Derived cannot override print() in Base
+            public void print() {
+                        ^
+            overridden method is static
+            2 errors
+
