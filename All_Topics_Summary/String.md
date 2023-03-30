@@ -13,7 +13,6 @@
 It is also known by the names - "String Constant Pool" or "String Intern Pool". 
 Whenever a string literal is created, the JVM first checks the String Constant Pool 
 before creating a new String object corresponding to it.
-
 ####  Need of String Constant Pool :-
 - When we create a String object, it uses some amount of space in the heap memory.
 - Let's say we are creating 'n' number of String objects with the same value, 
@@ -22,7 +21,6 @@ before creating a new String object corresponding to it.
 - This is an inefficient usage of heap memory. In order to escalate the performance of 
     our code and reduce memory usage, JVM optimizes the way in which strings are stored with 
     the help of a string constant pool.
-
 ####  Advantages of String Pool in Java :-
 1. Java String Pool allows "caching" of string. 
     Caching here is the process of storing data in a cache. Cache improves performance 
@@ -30,16 +28,14 @@ before creating a new String object corresponding to it.
 2. Provides "reusability" : It saves time to create a new string if there is already a 
     string with the same value present in the pool. The old string is reused, 
     and its reference is returned.
-
 ####  Why did the String pool move from "PermGen" to the "normal heap area" ? 
-. PermGen space is limited, the default size is just 64 MB. it was a problem with creating 
+- PermGen space is limited, the default size is just 64 MB. it was a problem with creating 
     and storing too many string objects in PermGen space. That’s why the String pool 
     was moved to a larger heap area.
-    
 ####  Garbage Collection in SCP :-
-. Garbage Collector cannot access SCP Area, Even thosgh Object does not have any reference 
+- Garbage Collector cannot access SCP Area, Even thosgh Object does not have any reference 
     still object is not eligible for GC.
-. All SCP objects will be destroyed only at the time of JVM ShutDown.
+- All SCP objects will be destroyed only at the time of JVM ShutDown.
 
 ## Ways to Create Strings :-
 1. String literal
