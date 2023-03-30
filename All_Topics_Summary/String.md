@@ -236,7 +236,7 @@ eg :-
 ```
 
 ### Inbuilt String Methods :-
-    . Any inbuilt methods when used will allocate memory for the string object in Heap outside SCP.
+- Any inbuilt methods when used will allocate memory for the string object in Heap outside SCP.
 ```java
     1. public char charAt(int index)    
         // index can't be -ve or more than length of string.
