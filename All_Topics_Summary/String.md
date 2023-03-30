@@ -164,6 +164,7 @@ eg :-
     change the value of the object, if we try to change then those changes will be
     reflected on the new object not on the existing object.
 - example
+```java
     String name = "Data";
         // the above string object is created in the "String Pool" in the heap area.
         // this type of String object doesn't allows duplication.
@@ -207,6 +208,7 @@ eg :-
                     String s = new String(b);
                     System.out.println(s); // "def"  
             {the byte value are treated as Ascii and gets converted to char counterparts.}
+```
 
 ## `Ways to Compare` :-
     1. "==" : compares the references of the string object.
