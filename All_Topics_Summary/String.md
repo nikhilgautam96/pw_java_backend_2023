@@ -1,25 +1,25 @@
 # String in Java :
-. String class is present in the "java.lang.String" package.
-. we don't need to import the "java.lang" package in our program as we can directly use it.
-. String - in java is an "object" hence it is also stored in "Heap Memory".
-. The memory for value of String objects is allocated in the heap area, but the 
+- String class is present in the "java.lang.String" package.
+- we don't need to import the "java.lang" package in our program as we can directly use it.
+- String - in java is an "object" hence it is also stored in "Heap Memory".
+- The memory for value of String objects is allocated in the heap area, but the 
     reference to those objects/object values are still in the stack area.
     by reference here we mean the variables pointing to those string objects.
-. Whenever we use any "inbuilt" string method or the "new" keyword or "reference" to any other string, 
+- Whenever we use any "inbuilt" string method or the "new" keyword or "reference" to any other  string, 
     the string object is allocated memory outside the SCP but in heap area.
 
-### "String Constant Pool" :-
+### `String Constant Pool` :-
 - String Pool in Java is a special storage space in Java Heap memory where string literals are stored.
 It is also known by the names - "String Constant Pool" or "String Intern Pool". 
 Whenever a string literal is created, the JVM first checks the String Constant Pool 
 before creating a new String object corresponding to it.
 
 ####  Need of String Constant Pool :-
-. When we create a String object, it uses some amount of space in the heap memory.
-. Let's say we are creating 'n' number of String objects with the same value, 
+- When we create a String object, it uses some amount of space in the heap memory.
+- Let's say we are creating 'n' number of String objects with the same value, 
     and distinct memory is allocated to each of these string objects 
     (though they all contain the same string).
-. This is an inefficient usage of heap memory. In order to escalate the performance of 
+- This is an inefficient usage of heap memory. In order to escalate the performance of 
     our code and reduce memory usage, JVM optimizes the way in which strings are stored with 
     the help of a string constant pool.
 
