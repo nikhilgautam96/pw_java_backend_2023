@@ -8,38 +8,38 @@
     . Whenever we use any "inbuilt" string method or the "new" keyword or "reference" to any other string, 
         the string object is allocated memory outside the SCP but in heap area.
 
-    . "String Constant Pool" :-
-        - String Pool in Java is a special storage space in Java Heap memory where string literals are stored.
-        It is also known by the names - "String Constant Pool" or "String Intern Pool". 
-        Whenever a string literal is created, the JVM first checks the String Constant Pool 
-        before creating a new String object corresponding to it.
+### "String Constant Pool" :-
+    - String Pool in Java is a special storage space in Java Heap memory where string literals are stored.
+    It is also known by the names - "String Constant Pool" or "String Intern Pool". 
+    Whenever a string literal is created, the JVM first checks the String Constant Pool 
+    before creating a new String object corresponding to it.
 
-        Need of String Constant Pool :-
-            . When we create a String object, it uses some amount of space in the heap memory.
-            . Let's say we are creating 'n' number of String objects with the same value, 
-                and distinct memory is allocated to each of these string objects 
-                (though they all contain the same string).
-            . This is an inefficient usage of heap memory. In order to escalate the performance of 
-                our code and reduce memory usage, JVM optimizes the way in which strings are stored with 
-                the help of a string constant pool.
+####    Need of String Constant Pool :-
+        . When we create a String object, it uses some amount of space in the heap memory.
+        . Let's say we are creating 'n' number of String objects with the same value, 
+            and distinct memory is allocated to each of these string objects 
+            (though they all contain the same string).
+        . This is an inefficient usage of heap memory. In order to escalate the performance of 
+            our code and reduce memory usage, JVM optimizes the way in which strings are stored with 
+            the help of a string constant pool.
 
-        Advantages of String Pool in Java :-
-            1. Java String Pool allows "caching" of string. 
-                Caching here is the process of storing data in a cache. Cache improves performance 
-                and reduces memory usage.
-            2. Provides "reusability" : It saves time to create a new string if there is already a 
-                string with the same value present in the pool. The old string is reused, 
-                and its reference is returned.
+####    Advantages of String Pool in Java :-
+        1. Java String Pool allows "caching" of string. 
+            Caching here is the process of storing data in a cache. Cache improves performance 
+            and reduces memory usage.
+        2. Provides "reusability" : It saves time to create a new string if there is already a 
+            string with the same value present in the pool. The old string is reused, 
+            and its reference is returned.
 
-        Why did the String pool move from "PermGen" to the "normal heap area" ? 
-            . PermGen space is limited, the default size is just 64 MB. it was a problem with creating 
-                and storing too many string objects in PermGen space. That’s why the String pool 
-                was moved to a larger heap area.
-        
-        Garbage Collection in SCP :-
-            . Garbage Collector cannot access SCP Area, Even thosgh Object does not have any reference 
-                still object is not eligible for GC.
-            . All SCP objects will be destroyed only at the time of JVM ShutDown.
+####    Why did the String pool move from "PermGen" to the "normal heap area" ? 
+        . PermGen space is limited, the default size is just 64 MB. it was a problem with creating 
+            and storing too many string objects in PermGen space. That’s why the String pool 
+            was moved to a larger heap area.
+    
+####   Garbage Collection in SCP :-
+        . Garbage Collector cannot access SCP Area, Even thosgh Object does not have any reference 
+            still object is not eligible for GC.
+        . All SCP objects will be destroyed only at the time of JVM ShutDown.
 
     . Ways to Create Strings :-
         1. String literal
@@ -211,33 +211,34 @@
                                     System.out.println(s); // "def"  
                             {the byte value are treated as Ascii and gets converted to char counterparts.}
 
-    . Ways to Compare :-
-        1. "==" : compares the references of the string object.
-        2. "equals()" : compares the content of the String object.
+### Ways to Compare :-
+    1. "==" : compares the references of the string object.
+    2. "equals()" : compares the content of the String object.
 
-    . '+'   vs   concat() :-
-        1. '+' : does not allocates memory outside SCP unless reference to string objects is used.
-            . eg :- String s1 = "sachin";  // in SCP
-                    String s2 = " Nikhil"  // in SCP
-                    String s3 = s1 + s2;   // in heap outside SCP, but a copy is also created in SCP.
-                                        // since reference to s1 and s2 were used.
-                    String s4 = "Nikhil" + "Gautam" + "is";   // in SCP
-            . Miscellaneous :
-                - String x = "Nik_" + 100 + 99;                 // "Nik_10099"
-                String y = 100 + 99 + "_Nik";                 // "199_Nik"
-                String z = 100 + 99 + "_Nik_" + 100 + 99;     // "199_Nik_10099"
-        
-        2. concat() : inbuilt method so allocates memory outside SCP in Heap.
-            . eg :- String s1 = "pw";                   // in SCP.
-                    String s2 = s1.concat(" skill");    // in Heap outside SCP, a copy in SCP too.
-                    s1.concat(" classes");              // in Heap outside SCP, but it is not referenced
-                                                        // also a copy is made in SCP too.
-                    String s3 = new String("Hey ");     // in Heap outside SCP. copy in SCP.
-                    s3 = s3.concat("Nikhil");           // in Heap outside SCP, S3 points to this object
-                                                        // copy in SCP. older s3 value remains dereferenced.
+### '+'   vs   concat() :-
+    1. '+' : does not allocates memory outside SCP unless reference to string objects is used.
+        . eg :- String s1 = "sachin";  // in SCP
+                String s2 = " Nikhil"  // in SCP
+                String s3 = s1 + s2;   // in heap outside SCP, but a copy is also created in SCP.
+                                    // since reference to s1 and s2 were used.
+                String s4 = "Nikhil" + "Gautam" + "is";   // in SCP
+        . Miscellaneous :
+            - String x = "Nik_" + 100 + 99;                 // "Nik_10099"
+            String y = 100 + 99 + "_Nik";                 // "199_Nik"
+            String z = 100 + 99 + "_Nik_" + 100 + 99;     // "199_Nik_10099"
+    
+    2. concat() : inbuilt method so allocates memory outside SCP in Heap.
+        . eg :- String s1 = "pw";                   // in SCP.
+                String s2 = s1.concat(" skill");    // in Heap outside SCP, a copy in SCP too.
+                s1.concat(" classes");              // in Heap outside SCP, but it is not referenced
+                                                    // also a copy is made in SCP too.
+                String s3 = new String("Hey ");     // in Heap outside SCP. copy in SCP.
+                s3 = s3.concat("Nikhil");           // in Heap outside SCP, S3 points to this object
+                                                    // copy in SCP. older s3 value remains dereferenced.
 
-    . Inbuilt String Methods :-
-        . Any inbuilt methods when used will allocate memory for the string object in Heap outside SCP.
+### Inbuilt String Methods :-
+    . Any inbuilt methods when used will allocate memory for the string object in Heap outside SCP.
+
 ```java
             1. public char charAt(int index)    
                 // index can't be -ve or more than length of string.
@@ -263,7 +264,7 @@
             12. public int lastIndexOf(char ch)
                 - returns (-1) if char not present.
 ```
-    . Miscellaneous :
+### Miscellaneous :
 ```java
         -   String str =" ";
             str.trim();
