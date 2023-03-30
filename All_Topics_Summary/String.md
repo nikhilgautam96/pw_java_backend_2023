@@ -55,7 +55,8 @@
                 otherwise,
                 the String created string object (outside the pool) is actually 
                 added to the string pool.
-            eg :- 
+        eg :- 
+
             ```java
                 public class InternExample {  
                     public static void main(String args[]) {  
@@ -67,6 +68,7 @@
                     }
                 }
             ```
+            ```java
                 public class InternExample2 {  
                     public static void main(String[] args) {          
                         String s1 = "Javatpoint";  
@@ -81,8 +83,8 @@
                         System.out.println(s3==s4);     // False          
                     }  
                 }  
-
-    . Types of Sting Object in java :-
+            ```
+    . Types of String Object in java :-
         1. Mutable (can be modified) :
                 - Once if we create a String, on that String if we try to perform any operation and if those 
                     changes get reflected in the same oblect then such strings are called “Mutable String”.
@@ -102,6 +104,7 @@
                     . StringBuffer sb = new StringBuffer( initialCapacity );        // initial capacity = initialCapacity.
                     . StringBuffer sb = new StringBuffer(String s);     // initial capacity = s.length() + 16.
                     . Important Methods :- 
+```java
                         1. public int length()
                         2. public int capacity()
                         3. public char charAt(int index)
@@ -142,12 +145,13 @@
                                             System.out.println(sb.capacity());          // 6
                         24. public void ensureCapacity(int capacity)
                                     // It is used to increase the capacity dynamically based on our requirements.
-
+```
                 - StringBuilder (Since Version 1.5 ) :-
                     . No methods a e Synchronized.
                     . No Threadsafe - At a time more than one thread can operate.
                     . Threads are not required to wait so performance is high.
                     . Important methods
+```java
                         1. append(Object obj)
                         2. append(String str)
                         3. insert(int offset, Object obj)
@@ -157,7 +161,7 @@
                         7. replace(int start, int End, String str)
                         8. reverse()
                         9. toString()
-                
+```
         2. Immutable (cannot be modified) :
                 - In java String object is by default immutable, meaning once the object is created we cannot
                     change the value of the object, if we try to change then those changes will be
@@ -234,14 +238,15 @@
 
     . Inbuilt String Methods :-
         . Any inbuilt methods when used will allocate memory for the string object in Heap outside SCP.
+```java
             1. public char charAt(int index)    
-                - index can't be -ve or more than length of string.
-                - StringArrayIndexOutOfBoundsException.
+                // index can't be -ve or more than length of string.
+                // StringArrayIndexOutOfBoundsException.
             2. public String concat(String str)
             3. public boolean equals(Object o)
-                - It is used for Content Comparison, 
-                - In String class equals() method is Overridden to check the 
-                content of the object. It is used for Content Comparison without comparing the case.
+                // It is used for Content Comparison, 
+                // In String class equals() method is Overridden to check the 
+                // content of the object. It is used for Content Comparison without comparing the /// case.
             4. public String subString(int begin)
             5. public String subString(int begin,int end)
             6. public int length()
@@ -257,13 +262,16 @@
                 - returns (-1) if char not present.
             12. public int lastIndexOf(char ch)
                 - returns (-1) if char not present.
-
+```
     . Miscellaneous :
+```java
         -   String str =" ";
             str.trim();
             System.out.println(str.equals("")+ " " + str.isEmpty());    // false false
             // bcz we are not assigning the result of str.trim() to str.
             // if we did, "str = str.trim();"  then reslt would be "true true"
+```
+```java
         - public class Test {
             public static void main(String[] args) { 
                 String fName = "James";
@@ -271,6 +279,8 @@
                 System.out.println(fName = lName);          // "Gosling"
             }
         }
+```
+```java
         - public class Test {
             public static void main(String[] args) { 
                 String str1 = new String("Core"); 
@@ -278,6 +288,8 @@
                 System.out.println(str1 = str2);            // "CoRe"
             }
         }
+```
+```java
         - public class Test {
             public static void main(String[] args){
                 String str = "Good";
@@ -288,6 +300,8 @@
                 s.concat("_Morning");
             }
         }
+```
+```java
         - public class Test {
             public static void main(String[] args) {
                 StringBuilder sb = new StringBuilder("Good");
@@ -298,3 +312,4 @@
                 s.append("_Morning");
             }
         }
+```
