@@ -8,7 +8,7 @@
 - Whenever we use any "inbuilt" string method or the "new" keyword or "reference" to any other  string, 
     the string object is allocated memory outside the SCP but in heap area.
 
-### `String Constant Pool` :-
+## `String Constant Pool` :-
 - String Pool in Java is a special storage space in Java Heap memory where string literals are stored.
 It is also known by the names - "String Constant Pool" or "String Intern Pool". 
 Whenever a string literal is created, the JVM first checks the String Constant Pool 
@@ -37,7 +37,7 @@ before creating a new String object corresponding to it.
     still object is not eligible for GC.
 - All SCP objects will be destroyed only at the time of JVM ShutDown.
 
-## Ways to Create Strings :-
+## `Ways to Create Strings` :-
 1. String literal
 2. Using new keyword :
     => String x = new String("Nikhil");
@@ -81,8 +81,8 @@ eg :-
     }  
 ```
 
-### Types of String Object in java :-
-##### 1. Mutable (can be modified) :
+## `Types of String Object in java` :-
+#### 1. Mutable (can be modified) :
 - Once if we create a String, on that String if we try to perform any operation and if those 
     changes get reflected in the same oblect then such strings are called “Mutable String”.
     Example : StringBuffer, StringBuilder.
@@ -159,7 +159,7 @@ eg :-
     8. reverse()
     9. toString()
 ```
-##### 2. Immutable (cannot be modified) :
+#### 2. Immutable (cannot be modified) :
 - In java String object is by default immutable, meaning once the object is created we cannot
     change the value of the object, if we try to change then those changes will be
     reflected on the new object not on the existing object.
@@ -208,11 +208,11 @@ eg :-
                     System.out.println(s); // "def"  
             {the byte value are treated as Ascii and gets converted to char counterparts.}
 
-### Ways to Compare :-
+## `Ways to Compare` :-
     1. "==" : compares the references of the string object.
     2. "equals()" : compares the content of the String object.
 
-### '+'   vs   concat() :-
+## `'+'   vs   concat()` :-
 ```java
     1. '+' : does not allocates memory outside SCP unless reference to string objects is used.
         . eg :- String s1 = "sachin";  // in SCP
@@ -235,7 +235,7 @@ eg :-
                                                     // copy in SCP. older s3 value remains dereferenced.
 ```
 
-### Inbuilt String Methods :-
+## `Inbuilt String Methods` :-
 - Any inbuilt methods when used will allocate memory for the string object in Heap outside SCP.
 ```java
     1. public char charAt(int index)    
@@ -262,7 +262,7 @@ eg :-
     12. public int lastIndexOf(char ch)
         - returns (-1) if char not present.
 ```
-### Miscellaneous :
+## `Miscellaneous` :
 ```java
     -   String str =" ";
         str.trim();
