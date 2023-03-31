@@ -3,6 +3,9 @@ Note :-
     eg :- if we try to access private members of parent in child, it gives error.
         bcz inheritance cannot violate the rules of polymorphism.
 
+Note :-
+    It is impossible to achieve polymorphism without parent type reference.
+
 Polymorphism :-
     . If one thing exists in more than one form it is called polymorphism .
     . Greek word, "poly" = "many"  &  "morphism" = "structure of forms" .
@@ -22,7 +25,22 @@ Method Overloading :-
       Method Overloading.
     . Different method signature must be provided to the methods.
     . we can implement overloading with or without inheritance.
+Rules for Overloading :-
+    1. The methods must have the same name : 
+        - All overloaded methods in a class must have the same name.
+    2. The methods must have different parameters: 
+        - Overloaded methods must have different parameter lists. The parameters can 
+            differ in number, order, and type.
+    3. The methods may have different return types : 
+        - The return type of an overloaded method may be different from the return 
+            type of the other overloaded methods. 
+        - However, the return type alone is not sufficient to differentiate between 
+            two overloaded methods.
+    4. Access modifiers may be different : 
+        - Overloaded methods may have different access modifiers (public, private, protected) 
+            or no access modifier (package-private).
 
+Exceptions thrown may be different: Overloaded methods may throw different checked exceptions. However, overloaded methods must not throw different unchecked exceptions.
 Method Overriding :-
     . The process of replacing the existing method functionality with new functionality is
       called method overriding.
