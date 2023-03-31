@@ -1,7 +1,9 @@
 Inheritance :-
     . It describes an "is-a relationship" between classes.
         ie. "B is a child of A" or "A is a parent of B"
-    . It is one of the pillars of Object oriented programming.
+    . It is one of the 4-pillars of Object oriented programming (OOPS).
+    . Inheritance is used to create a hierarchy of classes with increasing levels of 
+        abstraction and specialization.
     . It promotes reusability.
     . productivity of the code is improved.
     . In java inheritance is achieved using the "extends" keyword (to inherit classes) and

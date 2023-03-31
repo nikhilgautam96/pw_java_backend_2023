@@ -1,6 +1,6 @@
 # Abstraction :-
-- The process of displaying/exposing only the essential details by hiding the 
-    irrelevant details.
+- The process of displaying/exposing only the essential details by ignoring the 
+    irrelevant background details.
 
 ## Abstract Keyword :-
 - In Java applications, if we want to declare a method without body then we must 
