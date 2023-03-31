@@ -3,7 +3,6 @@
     interdependence between different parts of a software system. 
     
 ### Tight Coupling  :-    
-
 - In a tightly coupled system, changes in one part of the system can have a 
     significant impact on other parts of the system.
 
@@ -40,7 +39,6 @@ public class Payment {
 
 
 ### Loose Coupling  :-
-
 - In a loosely coupled system, changes can be made to one part of the system 
     without affecting other parts.
 
