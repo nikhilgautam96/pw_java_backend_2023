@@ -7,7 +7,7 @@
     declare that method as "Abstract Method" using the "abstract" keyword.
 - If we want to declare abstract methods then the respective class must be an 
     abstract class.
-eg :-
+    eg :-
 ```java
       abstract class Demo1 {
           public abstract void getDriver();
@@ -35,7 +35,7 @@ eg :-
     to declare the respective subclass as an abstract class and we have to provide 
     implementation for the remaining abstract methods by taking another subclass in
     multilevel inheritance.
-eg :- 
+    eg :- 
 ```java
     abstract class A{
         abstract void m1();
@@ -67,7 +67,7 @@ eg :-
 - To access the abstract class members, we have to create an object for the 
     subclass and we have to create a reference variable either for abstract class 
     or for the subclass.
-eg :-
+    eg :-
 ```java
     abstract class Demo1 {
         public abstract void getDriver();    
@@ -97,7 +97,7 @@ eg :-
 - we cannot instantiate the abstract class.
     ie. Object of abstract class cannot be created, we can only use its reference.
 - using abstract class reference we cannot access subclass's "Specialized methods".
-    eg :-
+eg :-
 ```java
     abstract class Demo1 {
         public abstract void getDriver();    
@@ -132,7 +132,7 @@ eg :-
 ```
 - Using the abstract class reference we cannot access the specialized methods of child class,
     we need to "downcast" the abstract class reference variable to the child class type.
-eg :- 
+    eg :- 
 ```java
         // Base class
         class Animal {
@@ -190,11 +190,14 @@ public class Abstraction_2 {
         B b = new B();
     }
 }
+OUTPUT :
+    in A's constructor, X-is : 10
+    B-Con
 ```
 
 - In Java applications, it is possible to extend an abstract class to concrete class 
     and from concrete class to abstract class.
-eg :-
+    eg :-
 ```java
 class A {
     void m1() {
@@ -232,8 +235,7 @@ public class Test x{
 
 - In Java applications, it is not possible to extend a class to the same class, 
     if we do the same then the compiler will raise an error like "Cyclic inheritance involving".
-
-eg :-
+    eg :-
 ```java
 1.
     class A extends A {
