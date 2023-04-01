@@ -1,6 +1,7 @@
 # Abstraction :-
 - The process of displaying/exposing only the essential details by ignoring the 
     irrelevant background details.
+- "abstract static"  &  "abstract final", both are illegal combinationcof modifiers.
 
 ## Abstract Keyword :-
 - In Java applications, if we want to declare a method without body then we must 
