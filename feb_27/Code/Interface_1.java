@@ -1,14 +1,4 @@
-# Interface :-
-
-- Interface will allow only abstract methods.
-- Interface cannot be instantiated.
-- Variables are "public, static and final" by default.
-- Methods are "public and abstract" by default.
-- No constructor in interface.
-
-- eg :-
-```java
-
+package feb_27.Code;
 interface A {
     int x = 10;             // Variables are "final and static" by default
     String name = "Nikhil";        
@@ -30,5 +20,3 @@ public class Interface_1 {
         // Hence --> variables are final.
     }
 }
-
-```
