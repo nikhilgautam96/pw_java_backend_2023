@@ -248,3 +248,54 @@ public class Test x{
     }
     Status : Compifation Error: "cyclic inheritance involving".
 ```
+
+- If we declare instance variables in "abtract class" then they get assigned default values.
+eg:-
+```java
+abstract class example {
+    static int a;
+    static String b;
+    abstract void print();
+}
+class B extends example {
+    void print() { System.out.println("Hi"); }
+}
+public class MyClass {
+    public static void main(String args[]) {
+      int x=10;
+      int y=25;
+      int z=x+y;
+
+      System.out.println("Sum of x+y = " + z);
+      example ob = new B();
+      System.out.println(ob.a + "   " + ob.b);
+    }
+}
+
+    OUTPUT :
+    Sum of x+y = 35
+    0   null
+```
+
+- we can have abstract classes without any abstract method.
+eg:-
+```java
+abstract class example {
+    static int a;
+    static String b;
+    // abstract void print();
+}
+class B extends example {
+    void print() { System.out.println("Hi"); }
+}
+public class MyClass {
+    public static void main(String args[]) {
+      example ob = new B();
+      System.out.println(ob.a + "   " + ob.b);
+    }
+}
+
+OUTPUT :
+0 null
+
+```
